@@ -1,3 +1,8 @@
+.logo{
+    position: absolute;
+    padding: 16px;
+}
+
 .loginBackground {
     background-image: url(/src/assets/login/videoflix.jpg);
     height: 100vh;

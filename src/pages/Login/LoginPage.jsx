@@ -12,41 +12,44 @@ export default function StateTextFields() {
   };
 
   return (
-    <div className={styles.loginBackground}>
-      <Box
-        className={styles.login_dialog}
-        component="form"
-        sx={{
-          "& > :not(style)": { m: 1, width: "25ch" },
-        }}
-        noValidate
-        autoComplete="off"
-      >
-        <h1>Einloggen</h1>
-        <div className={styles.loginForm}>
-          <TextField
-            label="Email"
-            onChange={(event) => {
-              setName(event.target.value);
-            }}
-          />
-          <TextField label="Password" />
-          <div className={styles.login_btns}>
-            <Button variant="contained">Einloggen</Button>
-            <span>ODER</span>
-            <Button
-              className={styles.register_btn}
-              variant="contained"
-              onClick={handleRegisterClick}
-            >
-              Registrieren
-            </Button>
-            <div className={styles.forgot_password_btn}>
-              <a>Password vergessen?</a>
+    <div>
+      <div className={styles.logo}><img src="./src/assets/logo/logo.png" alt="" /></div>
+      <div className={styles.loginBackground}>
+        <Box
+          className={styles.login_dialog}
+          component="form"
+          sx={{
+            "& > :not(style)": { m: 1, width: "25ch" },
+          }}
+          noValidate
+          autoComplete="off"
+        >
+          <h1>Einloggen</h1>
+          <div className={styles.loginForm}>
+            <TextField
+              label="Email"
+              onChange={(event) => {
+                setName(event.target.value);
+              }}
+            />
+            <TextField label="Password" />
+            <div className={styles.login_btns}>
+              <Button variant="contained">Einloggen</Button>
+              <span>ODER</span>
+              <Button
+                className={styles.register_btn}
+                variant="contained"
+                onClick={handleRegisterClick}
+              >
+                Registrieren
+              </Button>
+              <div className={styles.forgot_password_btn}>
+                <a>Password vergessen?</a>
+              </div>
             </div>
           </div>
-        </div>
-      </Box>
+        </Box>
+      </div>
     </div>
   );
 }
