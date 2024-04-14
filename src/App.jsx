@@ -1,19 +1,15 @@
-import { useState } from "react";
 import "./App.css";
-import Login from "./pages/Login";
-import Register from "./pages/Register"
-import ViteReactApp from "./pages/ViteReactApp";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LoginPage from "./pages/Login/LoginPage"
+import RegisterPage from "./pages/Register/RegisterPage"
+import { Routes, Route } from "react-router-dom";
 
 function App() {
-  const [count, setCount] = useState(0);
 
   return (
     <>
       <Routes>
-        <Route path="/" element={<ViteReactApp />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/registrieren" element={<Register />} />
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/registrieren" element={<RegisterPage />} />
       </Routes>
     </>
   );
