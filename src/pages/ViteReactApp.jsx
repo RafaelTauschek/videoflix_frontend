@@ -15,7 +15,7 @@ function App() {
   };
 
   return (
-    <>
+    <div className="vite_react_start">
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -29,8 +29,6 @@ function App() {
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
-        <br />
-        <br />
         <button onClick={handleLoginClick}>
           Login
         </button>
@@ -41,7 +39,7 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-    </>
+    </div>
   );
 }
 

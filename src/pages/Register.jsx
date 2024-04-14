@@ -2,7 +2,7 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import "../styles/Login.css";
+import "../styles/Register.css";
 
 export default function StateTextFields() {
   return (
@@ -15,7 +15,7 @@ export default function StateTextFields() {
         noValidate
         autoComplete="off"
       >
-        <h1>Einloggen</h1>
+        <h1 className="SignInHeader">Neuen Account erstellen</h1>
         <div className="loginForm">
           <TextField
             id="fullWidth"
@@ -25,15 +25,12 @@ export default function StateTextFields() {
             }}
           />
           <TextField id="fullWidth" label="Password" />
-          <div className="login_btns">
+          <TextField id="fullWidth" label="Password bestätigen" />
+          <div className="register_btns">
             <Button variant="contained">Einloggen</Button>
-            <span>ODER</span>
             <Button className="register_btn" variant="contained">
-              Registrieren
+              Zurück zu Login
             </Button>
-            <div className="forgot_password_btn">
-              <a href="/">Password vergessen?</a>
-            </div>
           </div>
         </div>
       </Box>

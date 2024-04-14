@@ -19,7 +19,8 @@
   border-radius: 16px;
 }
 
-h1{
+.SignInHeader{
+    font-size: 2.7em!important;
     margin-bottom: 40px!important;
 }
 
@@ -50,13 +51,12 @@ h1{
     color: rgba(255, 255, 255, 0.8)!important;
 }
 
-.login_btns{
+.register_btns{
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     padding-top: 24px;
-    gap: 8px;
+    width: 100%;
 }
 
 .css-sghohy-MuiButtonBase-root-MuiButton-root {

@@ -1,7 +1,8 @@
 import { useState } from "react";
 import "./App.css";
 import Login from "./pages/Login";
-import ViteReactApp from "./pages/ViteReactApp"
+import Register from "./pages/Register"
+import ViteReactApp from "./pages/ViteReactApp";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -9,12 +10,11 @@ function App() {
 
   return (
     <>
-      <Router>
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/" element={<ViteReactApp />} />
-        </Routes>
-      </Router>
+      <Routes>
+        <Route path="/" element={<ViteReactApp />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/registrieren" element={<Register />} />
+      </Routes>
     </>
   );
 }
