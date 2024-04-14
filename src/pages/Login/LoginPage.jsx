@@ -5,7 +5,7 @@ import Button from "@mui/material/Button";
 import styles from "./Login.module.css";
 import { useNavigate } from "react-router-dom";
 
-export default function StateTextFields() {
+export default function LoginForm() {
   const navigate = useNavigate();
   const handleRegisterClick = () => {
     navigate("/registrieren");
