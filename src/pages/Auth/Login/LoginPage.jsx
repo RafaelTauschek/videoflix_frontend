@@ -13,6 +13,9 @@ export default function LoginForm() {
   const handleForgotPasswordrClick = () => {
     navigate("/forgotPassword");
   };
+  const handleGuestLoginClick = () => {
+    navigate("/main")
+  };
 
   return (
     <div>
@@ -39,7 +42,7 @@ export default function LoginForm() {
             <div className={styles.login_btns}>
               <div className={styles.auth_btns}>
                 <Button className={styles.button_login} variant="contained">Einloggen</Button>
-                <Button className={styles.guest_button} variant="contained">Guest</Button>
+                <Button className={styles.guest_button} variant="contained" onClick={handleGuestLoginClick}>Guest</Button>
               </div>
               <span>ODER</span>
               <Button
