@@ -1,0 +1,92 @@
+.logo {
+  position: absolute;
+  padding: 16px;
+}
+
+.loginBackground {
+  background-image: url(/src/assets/login/videoflix.jpg);
+  height: 100vh;
+  width: 100vw;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login_dialog {
+  width: 500px;
+  max-width: 500px;
+  padding: 40px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 16px;
+}
+
+h1 {
+  margin-bottom: 40px !important;
+}
+
+.loginForm {
+  width: 100% !important;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.login_btns {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 24px;
+  gap: 8px;
+}
+
+.auth_btns {
+  display: flex;
+  gap: 8px;
+}
+
+.button_login {
+  background-color: rgb(229, 9, 20) !important;
+  font-weight: bold !important;
+  width: 200px;
+}
+
+.button_login:hover {
+  background-color: rgba(229, 9, 20, 0.8) !important;
+}
+
+.guest_button {
+  background-color: rgb(184, 52, 58) !important;
+  font-weight: bold !important;
+  width: 200px;
+}
+
+.guest_button:hover {
+  background-color: rgba(184, 52, 58, 0.8) !important;
+}
+
+.register_btn {
+  background-color: rgba(128, 128, 128, 0.4) !important;
+}
+
+.register_btn:hover {
+  background-color: rgba(128, 128, 128, 0.8) !important;
+}
+
+.forgot_password_btn {
+  padding-top: 24px;
+  cursor: pointer;
+}
+
+.forgot_password_btn a {
+  text-decoration: none;
+  color: white;
+}
+
+.forgot_password_btn a:hover {
+  font-weight: bold;
+}
