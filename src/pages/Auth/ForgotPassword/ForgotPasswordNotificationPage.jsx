@@ -5,8 +5,7 @@ import Button from "@mui/material/Button";
 import styles from "./ForgotPassword.module.css";
 import { useNavigate } from "react-router-dom";
 
-
-export default function ForgotPasswordPage() {
+export default function ForgotPasswordNotificationPage() {
   const navigate = useNavigate();
   const handleLoginClick = () => {
     navigate("/");
@@ -27,23 +26,17 @@ export default function ForgotPasswordPage() {
           noValidate
           autoComplete="off"
         >
-          <h1>Passwort zurücksetzen</h1>
-          <div className={styles.loginForm}>
-            <TextField
-              label="Password"
-              onChange={(event) => {
-                setName(event.target.value);
-              }}
-            />
-            <TextField label="Password wiederholen" />
-            <div className={styles.login_btns}>
-              <Button className={styles.button_login} variant="contained">
-                Reset Password
+          <h1>Dir wurde eine Mail geschickt</h1>
+          <span>In der Mail findest du einen Link, womit du dien Password zurücksetzen kannst.</span>
+          <div className={styles.backToLogin_btn}>
+            <a onClick={handleLoginClick}>Email nochmals senden</a>
+            <Button
+                className={styles.register_btn}
+                variant="contained"
+                onClick={handleLoginClick}
+              >
+                Zurück zu Login
               </Button>
-              <div className={styles.backToLogin_btn}>
-                <a onClick={handleLoginClick}>Zurück zum login</a>
-              </div>
-            </div>
           </div>
         </Box>
       </div>

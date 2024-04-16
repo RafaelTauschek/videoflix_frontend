@@ -1,7 +1,8 @@
 import "./App.css";
 import LoginPage from "./pages/Auth/Login/LoginPage"
 import RegisterPage from "./pages/Auth/Register/RegisterPage"
-import ForgotPassword from "./pages/Auth/ForgotPassword/ForgotPasswordPage"
+import ForgotPassword from "./pages/Auth/ForgotPassword/ForgotPasswordNotificationPage"
+import resetPassword from "./pages/Auth/ForgotPassword/ForgotPasswordPage"
 import { Routes, Route } from "react-router-dom";
 
 function App() {
