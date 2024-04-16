@@ -26,7 +26,7 @@ export default function ForgotPasswordNotificationPage() {
           noValidate
           autoComplete="off"
         >
-          <h1>Dir wurde eine Mail geschickt</h1>
+          <h1 className={styles.headline}>Dir wurde eine Mail geschickt</h1>
           <span>In der Mail findest du einen Link, womit du dien Password zurücksetzen kannst.</span>
           <div className={styles.backToLogin_btn}>
             <a onClick={handleLoginClick}>Email nochmals senden</a>
