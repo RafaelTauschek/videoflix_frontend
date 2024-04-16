@@ -49,7 +49,7 @@ export default function ForgotPasswordPage() {
           noValidate
           autoComplete="off"
         >
-          <h1>Passwort zurücksetzen</h1>
+          <h1 className={styles.headline}>Passwort zurücksetzen</h1>
           <div className={styles.loginForm}>
             <TextField
               label="Password"
