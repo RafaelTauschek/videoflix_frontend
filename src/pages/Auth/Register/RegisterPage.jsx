@@ -10,7 +10,6 @@ import { useNavigate } from 'react-router-dom';
 export default function RegisterForm() {
   const navigate = useNavigate();
 
-  // Formik-Formularinitialisierung mit Yup-Validierungsschema
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -29,7 +28,7 @@ export default function RegisterForm() {
     }),
     onSubmit: values => {
       console.log('Formularwerte', values);
-      navigate("/");  // Weiterleitung nach erfolgreicher Registrierung
+      navigate("/"); 
     },
   });
 
