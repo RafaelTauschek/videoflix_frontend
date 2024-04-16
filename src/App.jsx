@@ -13,6 +13,7 @@ function App() {
         <Route path="/" element={<LoginPage />} />
         <Route path="/registrieren" element={<RegisterPage />} />
         <Route path="/forgotPassword" element={<ForgotPassword />} />
+        <Route path="/reset/:token" element={<ResetPassword />} />
       </Routes>
     </>
   );
