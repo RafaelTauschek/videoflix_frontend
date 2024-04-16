@@ -90,3 +90,47 @@ h1 {
 .forgot_password_btn a:hover {
   font-weight: bold;
 }
+
+@media screen and (max-width: 600px){
+  .login_dialog{
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+
+  .button_login {
+    width: 100px;
+  }
+
+  .guest_button{
+    width: 100px;
+  }
+}
+
+@media screen and (max-width: 400px){
+  .logo{
+    margin-top: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+  }
+
+  .logo img{
+    height: 50px;
+  }
+
+  .loginBackground{
+    background-image: none;
+    background-color: black;
+  }
+
+  .login_dialog {
+    width: 100%;
+    max-width: auto;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 16px;
+  }
+}

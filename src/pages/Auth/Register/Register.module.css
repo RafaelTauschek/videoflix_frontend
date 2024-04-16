@@ -1,20 +1,20 @@
-.logo{
-    position: absolute;
-    padding: 16px;
+.logo {
+  position: absolute;
+  padding: 16px;
 }
 
 .loginBackground {
-    background-image: url(/src/assets/login/videoflix.jpg);
-    height: 100vh;
-    width: 100vw;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  background-image: url(/src/assets/login/videoflix.jpg);
+  height: 100vh;
+  width: 100vw;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .signUp_dialog {
   width: 500px;
@@ -24,9 +24,9 @@
   border-radius: 16px;
 }
 
-.SignInHeader{
-    font-size: 2.7em!important;
-    margin-bottom: 40px!important;
+.SignInHeader {
+  font-size: 2.7em !important;
+  margin-bottom: 40px !important;
 }
 
 .loginForm {
@@ -36,57 +36,92 @@
   gap: 8px;
 }
 
-.css-xn6ruc>:not(style) {
-    width: 100%!important;
+.register_btns {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-top: 24px;
+  width: 100%;
 }
 
-.css-1jy569b-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
-    color: rgba(255, 255, 255, 0.8)!important;
+.registration {
+  background-color: rgb(229, 9, 20) !important;
+  font-weight: bold !important;
+  width: 200px;
 }
 
-.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
-    border-color: rgba(255, 255, 255, 0.8)!important;
+.registration:hover {
+  background-color: rgba(229, 9, 20, 0.8) !important;
 }
 
-.css-1d3z3hw-MuiOutlinedInput-notchedOutline {
-    border-color: rgba(255, 255, 255, 0.8)!important;
+.register_btn {
+  background-color: rgba(128, 128, 128, 0.4) !important;
 }
 
-.css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root {
-    color: rgba(255, 255, 255, 0.8)!important;
+.register_btn:hover {
+  background-color: rgba(128, 128, 128, 0.4) !important;
 }
 
-.register_btns{
+.forgot_password_btn {
+  padding-top: 24px;
+}
+
+.forgot_password_btn a {
+  text-decoration: none;
+  color: white;
+}
+
+@media screen and (max-width: 700px) {
+  .signUp_dialog {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+
+  .registration {
+    width: 150px;
+  }
+
+  .register_btn {
+    width: 180px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .logo {
+    margin-top: 16px;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    padding-top: 24px;
+    justify-content: center;
+    width: 90%;
+  }
+
+  .logo img {
+    height: 50px;
+  }
+
+  .loginBackground {
+    background-image: none;
+    background-color: black;
+  }
+
+  .signUp_dialog {
     width: 100%;
+    max-width: auto;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 16px;
+  }
 }
 
-.css-sghohy-MuiButtonBase-root-MuiButton-root {
-    background-color: rgb(229,9,20)!important;
-    font-weight: bold!important;
-    width: 200px;
+@media screen and (max-width: 400px) {
+.SignInHeader{
+    font-size: 2.0em !important;
 }
 
-.css-sghohy-MuiButtonBase-root-MuiButton-root:hover {
-    background-color: rgba(229, 9, 20, 0.8)!important;
-}
-
-.register_btn{
-    background-color: rgba(128,128,128,0.4)!important;
-}
-
-.register_btn:hover{
-    background-color: rgba(128,128,128,0.4)!important;
-}
-
-.forgot_password_btn{
-    padding-top: 24px;
-}
-
-.forgot_password_btn a{
-    text-decoration: none;
-    color: white;
+  .register_btns {
+    flex-direction: column;
+    gap: 16px;
+  }
 }
