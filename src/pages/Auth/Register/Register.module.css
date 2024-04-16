@@ -1,20 +1,20 @@
-.logo{
-    position: absolute;
-    padding: 16px;
+.logo {
+  position: absolute;
+  padding: 16px;
 }
 
 .loginBackground {
-    background-image: url(/src/assets/login/videoflix.jpg);
-    height: 100vh;
-    width: 100vw;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  background-image: url(/src/assets/login/videoflix.jpg);
+  height: 100vh;
+  width: 100vw;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .signUp_dialog {
   width: 500px;
@@ -24,9 +24,9 @@
   border-radius: 16px;
 }
 
-.SignInHeader{
-    font-size: 2.7em!important;
-    margin-bottom: 40px!important;
+.SignInHeader {
+  font-size: 2.7em !important;
+  margin-bottom: 40px !important;
 }
 
 .loginForm {
@@ -36,37 +36,92 @@
   gap: 8px;
 }
 
-.register_btns{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding-top: 24px;
-    width: 100%;
+.register_btns {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-top: 24px;
+  width: 100%;
 }
 
 .registration {
-    background-color: rgb(229,9,20)!important;
-    font-weight: bold!important;
-    width: 200px;
+  background-color: rgb(229, 9, 20) !important;
+  font-weight: bold !important;
+  width: 200px;
 }
 
 .registration:hover {
-    background-color: rgba(229, 9, 20, 0.8)!important;
+  background-color: rgba(229, 9, 20, 0.8) !important;
 }
 
-.register_btn{
-    background-color: rgba(128,128,128,0.4)!important;
+.register_btn {
+  background-color: rgba(128, 128, 128, 0.4) !important;
 }
 
-.register_btn:hover{
-    background-color: rgba(128,128,128,0.4)!important;
+.register_btn:hover {
+  background-color: rgba(128, 128, 128, 0.4) !important;
 }
 
-.forgot_password_btn{
-    padding-top: 24px;
+.forgot_password_btn {
+  padding-top: 24px;
 }
 
-.forgot_password_btn a{
-    text-decoration: none;
-    color: white;
+.forgot_password_btn a {
+  text-decoration: none;
+  color: white;
+}
+
+@media screen and (max-width: 700px) {
+  .signUp_dialog {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+
+  .registration {
+    width: 150px;
+  }
+
+  .register_btn {
+    width: 180px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .logo {
+    margin-top: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+  }
+
+  .logo img {
+    height: 50px;
+  }
+
+  .loginBackground {
+    background-image: none;
+    background-color: black;
+  }
+
+  .signUp_dialog {
+    width: 100%;
+    max-width: auto;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 16px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+.SignInHeader{
+    font-size: 2.0em !important;
+}
+
+  .register_btns {
+    flex-direction: column;
+    gap: 16px;
+  }
 }
