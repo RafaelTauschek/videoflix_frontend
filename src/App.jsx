@@ -7,6 +7,7 @@ import MainPage from "./pages/Home/MainPage";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
+  const videos = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   return (
     <>
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<LoginPage />} />
         <Route path="/registrieren" element={<RegisterPage />} />
         <Route path="/forgotPassword" element={<ForgotPassword />} />
+        <Route path="/main" element={<MainPage videos={videos}/>}/>
       </Routes>
     </>
   );
