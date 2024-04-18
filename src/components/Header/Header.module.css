@@ -1,0 +1,46 @@
+.Header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 30px;
+}
+
+.HeaderLeft {
+    display: flex;
+    align-items: center;
+}
+
+.Logo {
+    transform: scale(0.7);
+}
+
+.OptionList {
+    text-decoration: none;
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+.OptionList__Item {
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.HeaderRight {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+
+.UserContainer {
+    gap: 10px;
+}
+
+.UserContainer__Picture {
+    height: 30px;
+    width: 30px;
+}
