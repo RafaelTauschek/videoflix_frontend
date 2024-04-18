@@ -21,6 +21,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.3",
     "styled-components": "^6.1.8",
+    "superagent": "^8.1.2",
     "yup": "^1.4.0"
   },
   "devDependencies": {
