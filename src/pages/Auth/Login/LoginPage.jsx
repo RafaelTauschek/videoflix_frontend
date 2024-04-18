@@ -22,7 +22,7 @@ export default function LoginForm() {
     }),
     onSubmit: values => {
       console.log('Login Informationen', values);
-      navigate("/home"); // Weiterleitung nach erfolgreichem Login
+      navigate("/home"); 
     },
   });
 
