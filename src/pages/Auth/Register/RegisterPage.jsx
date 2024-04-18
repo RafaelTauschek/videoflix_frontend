@@ -33,11 +33,12 @@ export default function RegisterForm() {
   });
 
   return (
-    <div>
+    <div className={styles.loginBackground}>
       <div className={styles.logo}>
-        <img src="./src/assets/logo/logo.png" alt="Logo" />
+        <img src="./src/assets/logo/logo.png" alt="" />
       </div>
-      <div className={styles.loginBackground}>
+      <div className={styles.loginComponent}>
+        <div>
         <Box
           component="form"
           onSubmit={formik.handleSubmit}
@@ -93,6 +94,11 @@ export default function RegisterForm() {
           </div>
         </Box>
       </div>
+      </div>
+      <footer className={styles.footer}>
+        <a href="">Datenschutz</a>
+        <a href="">Impressum</a>
+      </footer>
     </div>
   );
 }
