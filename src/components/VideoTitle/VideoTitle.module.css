@@ -3,6 +3,7 @@
     gap: 40px;
     padding: 20px 20px 20px 50px;
     align-items: center;
+    position: relative;
 }
 
 .Title {
@@ -20,9 +21,45 @@
     margin-top: 8px;
     border-radius: 16px;
     cursor: pointer;
+    transition: 125ms;
+}
+
+
+.GenresContainer:hover {
+    background-color: #DC1A28;
+    transform: scale(1.05);
 }
 
 .GenresTitle {
     font-size: 18px;
+    font-weight: 500;
+}
+
+.GenresMenu {
+    box-sizing: border-box;
+    position: absolute;
+    top: 90px;
+    background-color: #373942;
+    border: 1px solid #242527;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 2;
+    padding: 8px;
+    margin-left: -20px;
+    scroll-behavior: smooth;
+    min-width: 120px;
+}
+
+.GenresMenu__Item {
+    color: ghostwhite;
+    padding: 6px;
+    cursor: pointer;
+}
+
+.GenresMenu__Item:hover {
+    color: #DC1A28;
+    transform: scale(1.05);
     font-weight: 500;
 }
