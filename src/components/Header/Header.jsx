@@ -7,25 +7,22 @@ export default function Header({ onSelectCategory }) {
   const handleCategoryClick = (category) => {
     onSelectCategory(category);
   };
+
   const handleMenuClick = () => {
-    setMenuVisable(true);
+    setMenuVisible(!menuVisible);
   };
 
   const menuContainerRef = useRef(null);
 
-  const [menuVisable, setMenuVisable] = useState(false);
+  const [menuVisible, setMenuVisible] = useState(false);
 
   const handleClickOutside = (event) => {
     if (
       menuContainerRef.current &&
       !menuContainerRef.current.contains(event.target)
     ) {
-      toggleMenu();
+      setMenuVisible(false);
     }
-  };
-
-  const toggleMenu = () => {
-    setMenuVisable(!menuVisable);
   };
 
   useEffect(() => {
@@ -33,7 +30,7 @@ export default function Header({ onSelectCategory }) {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  });
+  }, [handleClickOutside]);
 
   return (
     <header className={styles.Header}>
@@ -41,7 +38,7 @@ export default function Header({ onSelectCategory }) {
         <div>
           <img
             className={styles.Logo}
-            src=".\src\assets\logo\logo.png"
+            src="./src/assets/logo/logo.png"
             alt="logo"
           />
         </div>
@@ -76,20 +73,20 @@ export default function Header({ onSelectCategory }) {
             src="./src/assets/profile/cat_profilepicture.jpg"
             alt="profilepicture"
           />
-          {menuVisable && (
+          {menuVisible && (
             <div className={styles.UserMenu}>
               <img
                 className={styles.UserContainer__Picture}
                 src="./src/assets/profile/cat_profilepicture.jpg"
                 alt="profilepicture"
               />
-              <span onClick={toggleMenu} className={styles.UserMenu__Item}>
+              <span onClick={handleMenuClick} className={styles.UserMenu__Item}>
                 Profile
               </span>
-              <span onClick={toggleMenu} className={styles.UserMenu__Item}>
+              <span onClick={handleMenuClick} className={styles.UserMenu__Item}>
                 Admin Page
               </span>
-              <span onClick={toggleMenu} className={styles.UserMenu__Item}>
+              <span onClick={handleMenuClick} className={styles.UserMenu__Item}>
                 Logout
               </span>
             </div>
