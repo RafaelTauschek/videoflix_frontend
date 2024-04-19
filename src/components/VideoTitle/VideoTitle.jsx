@@ -24,7 +24,7 @@ export default function VideoTitle() {
      * only show Videos of the Category
      * maybe add a "red '|' left of the Genre-name to show the currently selected Genre "
      */
-  }
+  };
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
@@ -43,18 +43,58 @@ export default function VideoTitle() {
           ref={genresContainerRef}
         >
           <span className={styles.GenresTitle}>Genres</span>
-          {/* <ArrowDropDownIcon/> */}
+          <ArrowDropDownIcon />
         </div>
         {isMenuOpen && (
           <div className={styles.GenresMenu}>
-            <span onClick={handleSelectGenreClick} className={styles.GenresMenu__Item}>Western</span>
-            <span onClick={handleSelectGenreClick} className={styles.GenresMenu__Item}>Comedy</span>
-            <span onClick={handleSelectGenreClick} className={styles.GenresMenu__Item}>Horror</span>
-            <span onClick={handleSelectGenreClick} className={styles.GenresMenu__Item}>Action</span>
-            <span onClick={handleSelectGenreClick} className={styles.GenresMenu__Item}>Drama</span>
-            <span onClick={handleSelectGenreClick} className={styles.GenresMenu__Item}>Thriller</span>
-            <span onClick={handleSelectGenreClick} className={styles.GenresMenu__Item}>Adventure</span>
-            <span onClick={handleSelectGenreClick} className={styles.GenresMenu__Item}>Animated</span>
+            <span
+              onClick={handleSelectGenreClick}
+              className={styles.GenresMenu__Item}
+            >
+              Western
+            </span>
+            <span
+              onClick={handleSelectGenreClick}
+              className={styles.GenresMenu__Item}
+            >
+              Comedy
+            </span>
+            <span
+              onClick={handleSelectGenreClick}
+              className={styles.GenresMenu__Item}
+            >
+              Horror
+            </span>
+            <span
+              onClick={handleSelectGenreClick}
+              className={styles.GenresMenu__Item}
+            >
+              Action
+            </span>
+            <span
+              onClick={handleSelectGenreClick}
+              className={styles.GenresMenu__Item}
+            >
+              Drama
+            </span>
+            <span
+              onClick={handleSelectGenreClick}
+              className={styles.GenresMenu__Item}
+            >
+              Thriller
+            </span>
+            <span
+              onClick={handleSelectGenreClick}
+              className={styles.GenresMenu__Item}
+            >
+              Adventure
+            </span>
+            <span
+              onClick={handleSelectGenreClick}
+              className={styles.GenresMenu__Item}
+            >
+              Animated
+            </span>
           </div>
         )}
       </div>

@@ -16,6 +16,7 @@
     position: relative;
     display: flex;
     justify-content: center;
+    align-items: center;
     background-color: #E7291D;
     padding: 8px;
     margin-top: 8px;
@@ -47,15 +48,17 @@
     flex-direction: column;
     z-index: 2;
     padding: 8px;
-    margin-left: -20px;
+    margin-left: -10px;
     scroll-behavior: smooth;
     min-width: 120px;
+    transition: 125ms;
 }
 
 .GenresMenu__Item {
     color: ghostwhite;
     padding: 6px;
     cursor: pointer;
+    transition: 125ms;
 }
 
 .GenresMenu__Item:hover {
