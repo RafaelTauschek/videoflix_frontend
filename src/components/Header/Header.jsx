@@ -4,6 +4,9 @@ import SearchIcon from "@mui/icons-material/Search";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 export default function Header({ onSelectCategory }) {
+  const [menuVisible, setMenuVisible] = useState(false);
+  const menuContainerRef = useRef(null);
+
   const handleCategoryClick = (category) => {
     onSelectCategory(category);
   };
@@ -12,9 +15,9 @@ export default function Header({ onSelectCategory }) {
     setMenuVisible(!menuVisible);
   };
 
-  const menuContainerRef = useRef(null);
 
-  const [menuVisible, setMenuVisible] = useState(false);
+
+
 
   const handleClickOutside = (event) => {
     if (
