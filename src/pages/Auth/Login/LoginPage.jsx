@@ -6,11 +6,11 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import styles from "./Login.module.css";
 import { useNavigate } from "react-router-dom";
+import { login } from "../../../styles/AuthServices/authService";
 
 export default function LoginForm() {
-  const navigate = useNavigate();
 
-  // Formik-Initialisierung
+  const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -22,9 +22,17 @@ export default function LoginForm() {
         .required("E-Mail ist erforderlich"),
       password: Yup.string().required("Passwort ist erforderlich"),
     }),
-    onSubmit: (values) => {
-      console.log("Login Informationen", values);
-      navigate("/home");
+    onSubmit: (values, { setSubmitting, setErrors }) => {
+      login(values.email, values.password)
+        .then(response => {
+          localStorage.setItem('token', response.body.token);
+          navigate("/main");
+        })
+        .catch(error => {
+          console.error('Login fehlgeschlagen:', error);
+          setErrors({ submit: 'Login fehlgeschlagen' }); 
+          setSubmitting(false);
+        });
     },
   });
 
