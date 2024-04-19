@@ -73,6 +73,7 @@
     background-color: #373942;
     gap: 10px;
     z-index: 2;
+    animation: slideDown 0.3s ease-in-out;
 }
 
 .UserMenu__Item {
@@ -90,5 +91,14 @@
 @media only screen and (max-width: 768px) {
     .OptionList {
         display: none;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%)
+    }
+    to {
+        transform: translateY(0);
     }
 }
