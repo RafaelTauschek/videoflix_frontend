@@ -3,7 +3,12 @@ import styles from "./Header.module.css";
 import SearchIcon from '@mui/icons-material/Search';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
-export default function Header() {
+export default function Header({ onSelectCategory  }) {
+  const handleCategoryClick = (category) => {
+    onSelectCategory (category);
+  }
+
+
   return (
     <header className={styles.Header}>
       <div className={styles.HeaderLeft}>
@@ -15,11 +20,9 @@ export default function Header() {
         />
         </div>
         <ul className={styles.OptionList}>
-          <li className={styles.OptionList__Item}>Home</li>
-          <li className={styles.OptionList__Item}>TV Shows</li>
-          <li className={styles.OptionList__Item}>Movies</li>
-          <li className={styles.OptionList__Item}>New & Popular</li>
-          <li className={styles.OptionList__Item}>My List</li>
+          <li className={styles.OptionList__Item} onClick={() => handleCategoryClick('All')}>Home</li>
+          <li className={styles.OptionList__Item} onClick={() => handleCategoryClick('Show')}>TV Shows</li>
+          <li className={styles.OptionList__Item} onClick={() => handleCategoryClick('Movie')}>Movies</li>
         </ul>
       </div>
       <div className={styles.HeaderRight}>
