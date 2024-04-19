@@ -33,7 +33,6 @@ export default function SendEmailNotificationPage() {
               Dannach kannst du dich anmelden.
             </span>
             <div className={styles.backToLogin_btn}>
-              {/* <a onClick={handleLoginClick}>Email nochmals senden</a> */}
               <Button
                 className={styles.register_btn}
                 variant="contained"

@@ -4,12 +4,14 @@ import * as Yup from "yup";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import UnstyledSnackbarIntroduction from "../../../components/NotificatoinComponents/ErrorNotification/ErrorNotification";
 import styles from "./Login.module.css";
 import { useNavigate } from "react-router-dom";
 import { login } from "../../../styles/AuthServices/authService";
 
 export default function LoginForm() {
-
+  const { handleOpenSnackbar, SnackbarComponent } =
+    UnstyledSnackbarIntroduction();
   const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
@@ -22,15 +24,34 @@ export default function LoginForm() {
         .required("E-Mail ist erforderlich"),
       password: Yup.string().required("Passwort ist erforderlich"),
     }),
+
     onSubmit: (values, { setSubmitting, setErrors }) => {
       login(values.email, values.password)
-        .then(response => {
-          localStorage.setItem('token', response.body.token);
+        .then((response) => {
+          localStorage.setItem("token", response.body.token);
           navigate("/main");
         })
-        .catch(error => {
-          console.error('Login fehlgeschlagen:', error);
-          setErrors({ submit: 'Login fehlgeschlagen' }); 
+        .catch((error) => {
+          console.error("Login fehlgeschlagen:", error);
+          if (
+            error.response &&
+            error.response.body &&
+            error.response.body.error === "Invalid Credentials"
+          ) {
+            setErrors({
+              submit:
+                "Falsche Eingabe - bitte achte auf Groß- und Kleinschreibung",
+            });
+          } else if (
+            error.response &&
+            error.response.body &&
+            error.response.body.error === "Not Validated"
+          ) {
+            handleOpenSnackbar("Test");
+          } else {
+            setErrors({ submit: "Login fehlgeschlagen" });
+          }
+
           setSubmitting(false);
         });
     },
@@ -43,7 +64,16 @@ export default function LoginForm() {
     navigate("/forgotPassword");
   };
   const handleGuestLoginClick = () => {
-    navigate("/main");
+    login("test@mail.com", "dasIsteinTestPassword!")
+      .then((response) => {
+        localStorage.setItem("token", response.body.token);
+        navigate("/main");
+      })
+      .catch((error) => {
+        console.error("Login fehlgeschlagen:", error);
+        setErrors({ submit: "Login fehlgeschlagen" });
+        setSubmitting(false);
+      });
   };
 
   return (
@@ -62,6 +92,11 @@ export default function LoginForm() {
             onSubmit={formik.handleSubmit}
           >
             <h1>Einloggen</h1>
+            {formik.errors.submit && (
+              <div style={{ color: "red", marginTop: "-30px" }}>
+                {formik.errors.submit}
+              </div>
+            )}
             <div className={styles.loginForm}>
               <TextField
                 label="Email"
@@ -119,6 +154,7 @@ export default function LoginForm() {
         <a href="">Datenschutz</a>
         <a href="">Impressum</a>
       </footer>
+      {SnackbarComponent}
     </div>
   );
 }

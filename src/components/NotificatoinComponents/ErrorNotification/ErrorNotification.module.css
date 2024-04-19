@@ -1,0 +1,7 @@
+.ErrorNotificationContainer{
+    background-color: red!important;
+    border: red!important;
+    box-shadow: none!important;
+    color: white!important;
+    width: 400px;
+} 
