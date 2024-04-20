@@ -3,10 +3,12 @@ import VideoContainer from "../../components/VideoContainer/VideoContainer";
 import Header from "../../components/Header/Header";
 import styles from "./Main.module.css";
 import VideoTitle from "../../components/VideoTitle/VideoTitle";
+import VideoDetailView from "../../components/VideoDetailView/VideoDetailView";
 
 export default function MainPage({ videos }) {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedGenre, setSelectedGenre] = useState("All");
+  const [selectedVideo, setSelectedVideo] = useState(null);
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
@@ -14,6 +16,14 @@ export default function MainPage({ videos }) {
 
   const handleGenreChange = (genre) => {
     setSelectedGenre(genre);
+  };
+
+  const handleVideoClick = (video) => {
+    setSelectedVideo(video);
+  };
+
+  const handleBackButtonClick = () => {
+    setSelectedVideo(null);
   };
 
   const filteredVideos =
@@ -32,9 +42,22 @@ export default function MainPage({ videos }) {
     <div className={styles.MainPageContainer}>
       <Header onSelectCategory={handleCategoryChange}></Header>
       {selectedCategory !== "All" ? (
-        <VideoTitle onSelectGenre={handleGenreChange} selectedCategory={selectedCategory}></VideoTitle>
+        <VideoTitle
+          onSelectGenre={handleGenreChange}
+          selectedCategory={selectedCategory}
+        ></VideoTitle>
       ) : null}
-      <VideoContainer videos={filteredVideos} />
+      {selectedVideo ? (
+        <VideoDetailView
+          video={selectedVideo}
+          handleBackButtonClick={handleBackButtonClick}
+        />
+      ) : (
+        <VideoContainer
+          videos={filteredVideos}
+          handleVideoClick={handleVideoClick}
+        />
+      )}
       {/* Footer */}
     </div>
   );

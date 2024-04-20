@@ -1,19 +1,14 @@
 import React from "react";
 import styles from "./VideoTile.module.css";
 
-export default function VideoTile({ video, index }) {
-  const handleVideoClick = () => {
-    console.log("Single Video should get opend!");
-
-    /**
-     * TODO:
-     * Open the detail view of the single Video
-     *
-     */
+export default function VideoTile({ video, index, handleVideoClick }) {
+  const handleClick = () => {
+    console.log('Handle Click in VideoTile');
+    handleVideoClick(video);
   };
 
   return (
-    <div className={styles.VideoContainer} onClick={handleVideoClick}>
+    <div className={styles.VideoContainer} onClick={handleClick}>
       <img
         className={styles.Video}
         src={"http://127.0.0.1:8000" + video.thumbnail}
