@@ -2,11 +2,15 @@ import React, { useEffect, useRef, useState } from "react";
 import styles from "./VideoTitle.module.css";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
-export default function VideoTitle({ onSelectGenre }) {
+export default function VideoTitle({ onSelectGenre, selectedCategory }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const categoryNames = {
+    Show: "TV Shows",
+    Movie: "Movies"
+  };
   const genresContainerRef = useRef(null);
   const genresMenuRef = useRef(null);
-
+  const categoryName = categoryNames[selectedCategory] || selectedCategory
   const handleGenresClick = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -34,7 +38,7 @@ export default function VideoTitle({ onSelectGenre }) {
 
   return (
     <div className={styles.TitleContainer}>
-      <span className={styles.Title}>Movies</span>
+      <span className={styles.Title}>{categoryName}</span>
       <div>
         <div
           className={styles.GenresContainer}

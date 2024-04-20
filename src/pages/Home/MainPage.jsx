@@ -31,7 +31,9 @@ export default function MainPage({ videos }) {
   return (
     <div className={styles.MainPageContainer}>
       <Header onSelectCategory={handleCategoryChange}></Header>
-      <VideoTitle onSelectGenre={handleGenreChange}></VideoTitle>
+      {selectedCategory !== "All" ? (
+        <VideoTitle onSelectGenre={handleGenreChange} selectedCategory={selectedCategory}></VideoTitle>
+      ) : null}
       <VideoContainer videos={filteredVideos} />
       {/* Footer */}
     </div>
