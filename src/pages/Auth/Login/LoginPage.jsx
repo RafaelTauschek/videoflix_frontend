@@ -32,7 +32,7 @@ export default function LoginForm() {
           navigate("/main");
         })
         .catch((error) => {
-          console.error("Login fehlgeschlagen:", error);
+          console.error(error.response.body.error);
           if (
             error.response &&
             error.response.body &&
@@ -47,7 +47,7 @@ export default function LoginForm() {
             error.response.body &&
             error.response.body.error === "Not Validated"
           ) {
-            handleOpenSnackbar("Test");
+            handleOpenSnackbar("");
           } else {
             setErrors({ submit: "Login fehlgeschlagen" });
           }

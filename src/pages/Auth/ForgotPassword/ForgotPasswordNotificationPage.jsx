@@ -33,7 +33,6 @@ export default function ForgotPasswordNotificationPage() {
               zurücksetzen kannst.
             </span>
             <div className={styles.backToLogin_btn}>
-              <a onClick={handleLoginClick}>Email nochmals senden</a>
               <Button
                 className={styles.register_btn}
                 variant="contained"

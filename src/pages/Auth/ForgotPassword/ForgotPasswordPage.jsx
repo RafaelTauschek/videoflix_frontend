@@ -5,15 +5,20 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import styles from "./ForgotPassword.module.css";
+import { useParams } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
+import { forgotPassword } from "../../../styles/AuthServices/authService";
+import SuccessSnackbarIntroduction from "../../../components/NotificatoinComponents/SuccessNotification/SuccessNotification";
 
 export default function ForgotPasswordPage() {
+  const { uid, token } = useParams();
+  
   const navigate = useNavigate();
-
   const handleLoginClick = () => {
     navigate("/");
   };
 
+  const { handleOpenSnackbar, SnackbarComponent } = SuccessSnackbarIntroduction();
   const formik = useFormik({
     initialValues: {
       password: "",
@@ -31,9 +36,30 @@ export default function ForgotPasswordPage() {
         .oneOf([Yup.ref("password"), null], "Passwörter müssen übereinstimmen")
         .required("Passwortbestätigung ist erforderlich"),
     }),
-    onSubmit: (values) => {
-      console.log("Passwörter zurückgesetzt", values);
-      navigate("/main");
+    onSubmit: (values, { setSubmitting, setErrors }) => {
+      forgotPassword(uid, token, values.password)
+        .then(() => {
+          handleOpenSnackbar("Success");
+          setTimeout(() => {
+            navigate("/");
+          }, 2000);  
+        })
+        .catch((error) => {
+          console.error("Passwort Anpassung fehlgeschlagen:", error);
+          if (
+            error.response &&
+            error.response.body &&
+            error.response.body.error === "Der Passwort-Reset-Link ist ungültig oder abgelaufen."
+          ) {
+            setErrors({
+              submit:
+                "Der Passwort-Reset-Link ist ungültig oder abgelaufen.",
+            });
+          } else {
+            setErrors({ submit: "Passwort überschreiben fehlgeschlagen" });
+          }
+          setSubmitting(false);
+        });
     },
   });
 
@@ -80,6 +106,11 @@ export default function ForgotPasswordPage() {
                   formik.errors.confirmPassword
                 }
               />
+              {formik.errors.submit && (
+                <div style={{ color: "red", marginTop: "10px" }}>
+                  {formik.errors.submit}
+                </div>
+              )}
               <div className={styles.login_btns}>
                 <Button
                   type="submit"
@@ -100,6 +131,7 @@ export default function ForgotPasswordPage() {
         <a href="">Datenschutz</a>
         <a href="">Impressum</a>
       </footer>
+      {SnackbarComponent}
     </div>
   );
 }
