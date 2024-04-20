@@ -11,6 +11,7 @@ export default function MainPage({ videos }) {
   const [selectedVideo, setSelectedVideo] = useState(null);
 
   const handleCategoryChange = (category) => {
+    setSelectedVideo(null)
     setSelectedCategory(category);
   };
 
