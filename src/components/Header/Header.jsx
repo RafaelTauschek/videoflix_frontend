@@ -16,9 +16,6 @@ export default function Header({ onSelectCategory }) {
   };
 
 
-
-
-
   const handleClickOutside = (event) => {
     if (
       menuContainerRef.current &&

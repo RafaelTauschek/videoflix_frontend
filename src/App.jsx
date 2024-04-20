@@ -15,7 +15,6 @@ function App() {
 
   useEffect(() => {
     get(BASE_URL + "videos/").then(response => {
-      console.log(response.body)
       setVideos(response.body);
     }).catch(error => {
       console.error('Error ', error);

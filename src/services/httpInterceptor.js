@@ -11,7 +11,6 @@ const customClient = {
 
     get: async function(url) {
         let req = request.get(url);
-    
         this.requestInterceptors.forEach(interceptor => {
             req = interceptor(req);
         });
