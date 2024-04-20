@@ -2,9 +2,15 @@ import React, { useEffect, useRef, useState } from "react";
 import styles from "./VideoTitle.module.css";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
-export default function VideoTitle() {
+export default function VideoTitle({ onSelectGenre, selectedCategory }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const categoryNames = {
+    Show: "TV Shows",
+    Movie: "Movies"
+  };
   const genresContainerRef = useRef(null);
+  const genresMenuRef = useRef(null);
+  const categoryName = categoryNames[selectedCategory] || selectedCategory
   const handleGenresClick = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -12,18 +18,15 @@ export default function VideoTitle() {
   const handleClickOutside = (event) => {
     if (
       genresContainerRef.current &&
-      !genresContainerRef.current.contains(event.target)
+      !genresContainerRef.current.contains(event.target) &&
+      genresMenuRef.current &&
+      !genresMenuRef.current.contains(event.target)
     ) {
       setIsMenuOpen(false);
     }
   };
-
-  const handleSelectGenreClick = () => {
-    /**
-     * TODO:
-     * only show Videos of the Category
-     * maybe add a "red '|' left of the Genre-name to show the currently selected Genre "
-     */
+  const handleGenreClick = (genre) => {
+    onSelectGenre(genre);
   };
 
   useEffect(() => {
@@ -35,7 +38,7 @@ export default function VideoTitle() {
 
   return (
     <div className={styles.TitleContainer}>
-      <span className={styles.Title}>Movies</span>
+      <span className={styles.Title}>{categoryName}</span>
       <div>
         <div
           className={styles.GenresContainer}
@@ -46,51 +49,57 @@ export default function VideoTitle() {
           <ArrowDropDownIcon />
         </div>
         {isMenuOpen && (
-          <div className={styles.GenresMenu}>
+          <div className={styles.GenresMenu} ref={genresMenuRef}>
             <span
-              onClick={handleSelectGenreClick}
+              onClick={() => handleGenreClick("All")}
+              className={styles.GenresMenu__Item}
+            >
+              All
+            </span>
+            <span
+              onClick={() => handleGenreClick("Western")}
               className={styles.GenresMenu__Item}
             >
               Western
             </span>
             <span
-              onClick={handleSelectGenreClick}
+              onClick={() => handleGenreClick("Comedy")}
               className={styles.GenresMenu__Item}
             >
               Comedy
             </span>
             <span
-              onClick={handleSelectGenreClick}
+              onClick={() => handleGenreClick("Horror")}
               className={styles.GenresMenu__Item}
             >
               Horror
             </span>
             <span
-              onClick={handleSelectGenreClick}
+              onClick={() => handleGenreClick("Action")}
               className={styles.GenresMenu__Item}
             >
               Action
             </span>
             <span
-              onClick={handleSelectGenreClick}
+              onClick={() => handleGenreClick("Drama")}
               className={styles.GenresMenu__Item}
             >
               Drama
             </span>
             <span
-              onClick={handleSelectGenreClick}
+              onClick={() => handleGenreClick("Thriller")}
               className={styles.GenresMenu__Item}
             >
               Thriller
             </span>
             <span
-              onClick={handleSelectGenreClick}
+              onClick={() => handleGenreClick("Adventure")}
               className={styles.GenresMenu__Item}
             >
               Adventure
             </span>
             <span
-              onClick={handleSelectGenreClick}
+              onClick={() => handleSelectGenreClick("Animated")}
               className={styles.GenresMenu__Item}
             >
               Animated

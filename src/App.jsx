@@ -1,4 +1,5 @@
 import "./App.css";
+import React, { useState, useEffect } from "react";
 import LoginPage from "./pages/Auth/Login/LoginPage"
 import RegisterPage from "./pages/Auth/Register/RegisterPage"
 import ForgotPassword from "./pages/Auth/ForgotPassword/ForgotPasswordNotificationPage"
@@ -8,9 +9,19 @@ import SendEmailNotificationPage from "./pages/Auth/Register/SendEmailNotificati
 import MainPage from "./pages/Home/MainPage";
 
 import { Routes, Route } from "react-router-dom";
+import { get } from "./services/http";
 
 function App() {
-  const videos = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const BASE_URL = "http://127.0.0.1:8000/";
+  const [videos, setVideos] = useState([])
+
+  useEffect(() => {
+    get(BASE_URL + "videos/").then(response => {
+      setVideos(response.body);
+    }).catch(error => {
+      console.error('Error ', error);
+    })
+  }, []);
 
   return (
     <>
