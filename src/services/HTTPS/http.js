@@ -1,4 +1,4 @@
-import customClient from "../httpInterceptor";
+import customClient from "./httpInterceptor";
 
 export const get = (url) => {
     return customClient.get(url);

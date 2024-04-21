@@ -7,6 +7,7 @@ import Button from "@mui/material/Button";
 import styles from "./Register.module.css";
 import { useNavigate } from "react-router-dom";
 import { register } from "../../../services/AuthServices/authService";
+import Footer from "../../../components/Footer/footerComponent";
 
 export default function RegisterForm() {
   const navigate = useNavigate();
@@ -117,10 +118,7 @@ export default function RegisterForm() {
           </Box>
         </div>
       </div>
-      <footer className={styles.footer}>
-        <a href="">Datenschutz</a>
-        <a href="">Impressum</a>
-      </footer>
+      <Footer></Footer>
     </div>
   );
 }

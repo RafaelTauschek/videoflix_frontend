@@ -4,6 +4,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import styles from "./ForgotPassword.module.css";
 import { useNavigate } from "react-router-dom";
+import Footer from "../../../components/Footer/footerComponent";
 
 export default function ForgotPasswordNotificationPage() {
   const navigate = useNavigate();
@@ -44,10 +45,7 @@ export default function ForgotPasswordNotificationPage() {
           </Box>
         </div>
       </div>
-      <footer className={styles.footer}>
-        <a href="">Datenschutz</a>
-        <a href="">Impressum</a>
-      </footer>
+      <Footer></Footer>
     </div>
   );
 }

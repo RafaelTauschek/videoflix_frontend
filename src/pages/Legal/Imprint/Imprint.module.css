@@ -1,0 +1,42 @@
+.imprintPage{
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+}
+
+.cardHeaderLine{
+    display: flex;
+    flex-direction: row!important;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.flex1{
+    flex: 1;
+}
+
+.CardContainer{
+    display: flex;
+    flex-direction: column; 
+    max-width: 800px;
+}
+
+.arrowBackButton{
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 100%;
+    color: white;
+}
+
+.arrowBackButton:hover{
+    background-color: rgba(0, 0, 0, 0.04)
+}
+
+
+.ImprintContainer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: baseline;
+}
+

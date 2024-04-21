@@ -9,6 +9,7 @@ import { useParams } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import { forgotPassword } from "../../../services/AuthServices/authService";
 import SuccessSnackbarIntroduction from "../../../components/NotificatoinComponents/SuccessNotification/SuccessNotification";
+import Footer from "../../../components/Footer/footerComponent";
 
 export default function ForgotPasswordPage() {
   const { uid, token } = useParams();
@@ -127,10 +128,7 @@ export default function ForgotPasswordPage() {
           </Box>
         </div>
       </div>
-      <footer className={styles.footer}>
-        <a href="">Datenschutz</a>
-        <a href="">Impressum</a>
-      </footer>
+      <Footer></Footer>
       {SnackbarComponent}
     </div>
   );

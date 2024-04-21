@@ -8,6 +8,9 @@ import ResetPassword from "./pages/Auth/ForgotPassword/ForgotPasswordPage"
 import SendEmailNotificationPage from "./pages/Auth/Register/SendEmailNotificationPage";
 import MainPage from "./pages/Home/MainPage";
 
+import ImpressumPage from "./pages/Legal/Imprint/ImprintPage";
+import PrivacyPolicyPage from "./pages/Legal/PrivatePolicy/PrivatePolicyPage";
+
 import { Routes, Route } from "react-router-dom";
 import { get } from "./services/HTTPS/http";
 
@@ -33,6 +36,9 @@ function App() {
         <Route path="/forgot-password-notification" element={<ForgotPassword />} />
         <Route path="/forgot-password-reset/:uid/:token" element={<ResetPassword />} />
         <Route path="/main" element={<MainPage videos={videos}/>}/>
+        <Route path="/datenschutz" element={<PrivacyPolicyPage />} />
+        <Route path="/imprint" element={<ImpressumPage />} />
+        <Route path="/forgot-password-reset/:uid/:token" element={<ResetPassword />} />
       </Routes>
     </>
   );
