@@ -6,7 +6,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import styles from "./Register.module.css";
 import { useNavigate } from "react-router-dom";
-import { register } from "../../../styles/AuthServices/authService";
+import { register } from "../../../services/AuthServices/authService";
 
 export default function RegisterForm() {
   const navigate = useNavigate();

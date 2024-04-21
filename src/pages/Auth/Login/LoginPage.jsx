@@ -7,7 +7,7 @@ import Button from "@mui/material/Button";
 import UnstyledSnackbarIntroduction from "../../../components/NotificatoinComponents/ErrorNotification/ErrorNotification";
 import styles from "./Login.module.css";
 import { useNavigate } from "react-router-dom";
-import { login } from "../../../styles/AuthServices/authService";
+import { login } from "../../../services/AuthServices/authService";
 
 export default function LoginForm() {
   const { handleOpenSnackbar, SnackbarComponent } =

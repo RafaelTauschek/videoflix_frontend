@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./VideoDetailView.module.css";
-import { get } from "../../services/http";
+import { get } from "../../services/HTTPS/http";
 
 export default function VideoDetailView({ video, handleBackButtonClick }) {
   const BASE_URL = "http://127.0.0.1:8000/";

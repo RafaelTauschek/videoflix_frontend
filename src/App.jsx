@@ -9,7 +9,7 @@ import SendEmailNotificationPage from "./pages/Auth/Register/SendEmailNotificati
 import MainPage from "./pages/Home/MainPage";
 
 import { Routes, Route } from "react-router-dom";
-import { get } from "./services/http";
+import { get } from "./services/HTTPS/http";
 
 function App() {
   const BASE_URL = "http://127.0.0.1:8000/";

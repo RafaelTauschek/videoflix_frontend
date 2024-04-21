@@ -6,7 +6,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import styles from "./ForgotPassword.module.css";
 import { useNavigate } from "react-router-dom";
-import { forgotPasswordMail } from "../../../styles/AuthServices/authService";
+import { forgotPasswordMail } from "../../../services/AuthServices/authService";
 
 export default function EmailForForgetPassword() {
   const navigate = useNavigate();

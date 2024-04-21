@@ -7,7 +7,7 @@ import Button from "@mui/material/Button";
 import styles from "./ForgotPassword.module.css";
 import { useParams } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
-import { forgotPassword } from "../../../styles/AuthServices/authService";
+import { forgotPassword } from "../../../services/AuthServices/authService";
 import SuccessSnackbarIntroduction from "../../../components/NotificatoinComponents/SuccessNotification/SuccessNotification";
 
 export default function ForgotPasswordPage() {
