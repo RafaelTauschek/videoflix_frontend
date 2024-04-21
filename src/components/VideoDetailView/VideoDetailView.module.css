@@ -45,28 +45,35 @@
     display: flex;
     gap: 5px;
     z-index: 3;
+    font-size: 18px;
 }
 
 .CategoryContainer__Img {
     height: 30px;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 
 .VideoItem__ButtonContainer {
     display: flex;
-    gap: 5px;
-    align-items: center;
     gap: 10px;
+    align-items: center;
+    padding-top: 30px;
     z-index: 3;
 }
 
 .VideoItem__Title {
     z-index: 3;
+    font-size: 32px;
+    font-weight: 500;
 }
 
 .VideoItem__Description {
     z-index: 3;
+    width: 40%;
+    text-align: left;
+    line-height: 120%;
+    font-size: 20px;
 }
 
 .ButtonContainer__Play {
@@ -74,7 +81,8 @@
     padding: 4px;
     border-radius: 4px;
     background-color: white;
-    width: 80px;
+    width: 150px;
+    height: 35px;
     justify-content: center;
     align-items: center;
     gap: 4px;
@@ -92,7 +100,7 @@
 .PlayButton__Text {
     color: black;
     font-weight: 700;
-    font-size: 1rem;
+    font-size: 20px;
 }
 
 
@@ -100,7 +108,9 @@
     display: flex;
     flex-direction: column;
     z-index: 3;
-    border-bottom: 2px solid #F9F9F933;
+    height: 100%;
+    justify-content: flex-end;
+    
 }
 
 .Footer__Header {
@@ -112,5 +122,39 @@
 
 .Header__Title {
     font-weight: 700;
-    font-size: 1.25rem;
+    font-size: 20px;
+    border-bottom: 2px solid #F9F9F933;
+}
+
+.VideoItem_Footer_Content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+}
+
+.VideoItem__VideoDetail__Main {
+    display: flex;
+    flex-direction: column;
+}
+
+.VideoItem__VideoDetails {
+    display: flex;
+    flex-direction: column;
+}
+
+.VideoDetail_Title {
+    font-size: 20px;
+    color: rgb(177, 174, 174);
+}
+
+.VideoDetail_Content {
+    font-size: 20px;
+}
+
+.VideoDetail__Main__Title {
+    font-size: 20px;
+}
+
+.VideoDetail__Main__Description {
+    font-size: 20px;
 }
