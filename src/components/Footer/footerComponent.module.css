@@ -1,0 +1,18 @@
+.footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding-bottom: 40px;
+  }
+  
+  .footer a{
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .footer a:hover{
+    font-weight: bold;
+    text-decoration: underline;
+  }

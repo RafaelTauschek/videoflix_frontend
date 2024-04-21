@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
 import styles from "./VideoDetailView.module.css";
+<<<<<<< HEAD
 import { get } from "../../services/http";
 import CloseIcon from "@mui/icons-material/Close";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import AddIcon from "@mui/icons-material/Add";
+=======
+import { get } from "../../services/HTTPS/http";
+>>>>>>> 126528bf97311fce5706085c963398947a532cd7
 
 export default function VideoDetailView({ video, handleBackButtonClick }) {
   const BASE_URL = "http://127.0.0.1:8000/";

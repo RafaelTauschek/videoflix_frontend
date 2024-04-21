@@ -7,7 +7,8 @@ import Button from "@mui/material/Button";
 import UnstyledSnackbarIntroduction from "../../../components/NotificatoinComponents/ErrorNotification/ErrorNotification";
 import styles from "./Login.module.css";
 import { useNavigate } from "react-router-dom";
-import { login } from "../../../styles/AuthServices/authService";
+import { login } from "../../../services/AuthServices/authService";
+import Footer from "../../../components/Footer/footerComponent";
 
 export default function LoginForm() {
   const { handleOpenSnackbar, SnackbarComponent } =
@@ -150,10 +151,7 @@ export default function LoginForm() {
           </Box>
         </div>
       </div>
-      <footer className={styles.footer}>
-        <a href="">Datenschutz</a>
-        <a href="">Impressum</a>
-      </footer>
+      <Footer></Footer>
       {SnackbarComponent}
     </div>
   );
