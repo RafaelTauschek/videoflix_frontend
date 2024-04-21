@@ -1,4 +1,11 @@
 .MainPageContainer {
     height: 100dvh;
     width: 100dvw;
+    display: flex;
+    flex-direction: column;
+}
+
+.VideoDetailView {
+    display: flex;
+    flex: 1;
 }

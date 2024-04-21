@@ -11,8 +11,8 @@ export default function MainPage({ videos }) {
   const [selectedVideo, setSelectedVideo] = useState(null);
 
   const handleCategoryChange = (category) => {
-    setSelectedVideo(null)
     setSelectedCategory(category);
+    setSelectedVideo(null)
   };
 
   const handleGenreChange = (genre) => {
@@ -20,6 +20,7 @@ export default function MainPage({ videos }) {
   };
 
   const handleVideoClick = (video) => {
+    setSelectedCategory("All");
     setSelectedVideo(video);
   };
 
@@ -50,6 +51,7 @@ export default function MainPage({ videos }) {
       ) : null}
       {selectedVideo ? (
         <VideoDetailView
+          className={styles.VideoDetailView}
           video={selectedVideo}
           handleBackButtonClick={handleBackButtonClick}
         />
