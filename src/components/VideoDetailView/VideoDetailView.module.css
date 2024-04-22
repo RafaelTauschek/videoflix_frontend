@@ -49,8 +49,8 @@
 }
 
 .CategoryContainer__Img {
-    height: 30px;
-    object-fit: cover;
+    height: 20px;
+    object-fit: contain;
 }
 
 
@@ -86,6 +86,7 @@
     justify-content: center;
     align-items: center;
     gap: 4px;
+    cursor: pointer;
 }
 
 .ButtonContainer__Save {
@@ -95,6 +96,7 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+    cursor: pointer;
 }
 
 .PlayButton__Text {

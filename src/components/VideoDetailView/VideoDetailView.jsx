@@ -4,14 +4,23 @@ import { get } from "../../services/HTTPS/http";
 import CloseIcon from "@mui/icons-material/Close";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import AddIcon from "@mui/icons-material/Add";
+import VideoPlayer from "../VideoPlayer/VideoPlayer";
 
 export default function VideoDetailView({ video, handleBackButtonClick }) {
   const BASE_URL = "http://127.0.0.1:8000/";
   const [videoDetail, setVideoDetail] = useState({});
 
+
   const handleBackClick = () => {
     handleBackButtonClick();
   };
+
+  const handleVideoPlayClick = () => {
+    /**
+     * TODO, open Videoplayer with the resolution fullscreen.
+     * 
+     */
+  }
 
   const categoryNames = {
     Show: "TV Show",
@@ -34,6 +43,7 @@ export default function VideoDetailView({ video, handleBackButtonClick }) {
 
   return (
     <div className={styles.VideoDetail__Container}>
+      <VideoPlayer video={videoDetail}></VideoPlayer>
       {/* All rendering should go in here */}
       {videoDetail && Object.keys(videoDetail).length > 0 && (
         <div className={styles.VideoDetail} style={{ backgroundImage: `url(${"http://127.0.0.1:8000" + videoDetail.video.thumbnail})`,}}
@@ -62,7 +72,7 @@ export default function VideoDetailView({ video, handleBackButtonClick }) {
             {videoDetail.video.short_description}
           </span>
           <div className={styles.VideoItem__ButtonContainer}>
-            <div className={styles.ButtonContainer__Play}>
+            <div className={styles.ButtonContainer__Play} onClick={handleVideoPlayClick}>
               <PlayArrowIcon sx={{ color: "black" }} />
               <span className={styles.PlayButton__Text}>Play</span>
             </div>
