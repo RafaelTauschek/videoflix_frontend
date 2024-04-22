@@ -22,3 +22,8 @@ export const forgotPasswordMail = (email) => {
 export const forgotPassword = (uid, token, password) => {
   return superagent.post(`${BASE_URL}users/password-reset-confirm/${uid}/${token}/`, { password });
 };
+
+// ################################ Logout ################################
+export const logout = () => {
+  return superagent.post(`${BASE_URL}/users/logout/`);
+};

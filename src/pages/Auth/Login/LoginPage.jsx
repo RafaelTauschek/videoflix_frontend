@@ -8,6 +8,7 @@ import UnstyledSnackbarIntroduction from "../../../components/NotificatoinCompon
 import styles from "./Login.module.css";
 import { useNavigate } from "react-router-dom";
 import { login } from "../../../services/AuthServices/authService";
+import AuthenticationCheck from "../../../services/AuthServices/authenticationCheck";
 import Footer from "../../../components/Footer/footerComponent";
 
 export default function LoginForm() {
@@ -79,6 +80,7 @@ export default function LoginForm() {
 
   return (
     <div className={styles.loginBackground}>
+      <AuthenticationCheck />
       <div className={styles.logo}>
         <img src="./src/assets/logo/logo.png" alt="" />
       </div>

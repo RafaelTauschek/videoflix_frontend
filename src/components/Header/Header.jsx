@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import styles from "./Header.module.css";
 import SearchIcon from "@mui/icons-material/Search";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import { logout } from "../../services/AuthServices/authService";
 
 export default function Header({ onSelectCategory }) {
   const [menuVisible, setMenuVisible] = useState(false);
@@ -15,6 +16,10 @@ export default function Header({ onSelectCategory }) {
     setMenuVisible(!menuVisible);
   };
 
+  const handleLogoutClick = () => {
+    logout();
+    setMenuVisible(false);
+  };
 
   const handleClickOutside = (event) => {
     if (
@@ -86,7 +91,7 @@ export default function Header({ onSelectCategory }) {
               <span onClick={handleMenuClick} className={styles.UserMenu__Item}>
                 Admin Page
               </span>
-              <span onClick={handleMenuClick} className={styles.UserMenu__Item}>
+              <span onClick={handleLogoutClick.bind(this)} className={styles.UserMenu__Item}>
                 Logout
               </span>
             </div>

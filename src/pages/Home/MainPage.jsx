@@ -4,6 +4,7 @@ import Header from "../../components/Header/Header";
 import styles from "./Main.module.css";
 import VideoTitle from "../../components/VideoTitle/VideoTitle";
 import VideoDetailView from "../../components/VideoDetailView/VideoDetailView";
+import AuthenticationCheck from "../../services/AuthServices/authenticationCheck";
 
 export default function MainPage({ videos }) {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -42,6 +43,7 @@ export default function MainPage({ videos }) {
 
   return (
     <div className={styles.MainPageContainer}>
+      <AuthenticationCheck />
       <Header onSelectCategory={handleCategoryChange}></Header>
       {selectedCategory !== "All" ? (
         <VideoTitle
