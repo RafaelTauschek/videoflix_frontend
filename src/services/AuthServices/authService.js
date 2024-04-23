@@ -25,5 +25,6 @@ export const forgotPassword = (uid, token, password) => {
 
 // ################################ Logout ################################
 export const logout = () => {
+  console.log('Logout in authService was called!');
   return superagent.post(`${BASE_URL}/users/logout/`);
 };

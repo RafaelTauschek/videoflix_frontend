@@ -7,16 +7,18 @@ import { logout } from "../../services/AuthServices/authService";
 export default function Header({ onSelectCategory }) {
   const [menuVisible, setMenuVisible] = useState(false);
   const menuContainerRef = useRef(null);
+  const menuRef = useRef(null);
 
   const handleCategoryClick = (category) => {
     onSelectCategory(category);
   };
 
-  const handleMenuClick = () => {
-    setMenuVisible(!menuVisible);
-  };
+   const handleMenuClick = () => {
+     setMenuVisible(!menuVisible);
+   };
 
   const handleLogoutClick = () => {
+    console.log('Logout was called');
     logout();
     setMenuVisible(false);
   };
@@ -24,7 +26,9 @@ export default function Header({ onSelectCategory }) {
   const handleClickOutside = (event) => {
     if (
       menuContainerRef.current &&
-      !menuContainerRef.current.contains(event.target)
+      !menuContainerRef.current.contains(event.target) &&
+      menuRef.current &&
+      !menuRef.current.contains(event.target)
     ) {
       setMenuVisible(false);
     }
@@ -79,7 +83,7 @@ export default function Header({ onSelectCategory }) {
             alt="profilepicture"
           />
           {menuVisible && (
-            <div className={styles.UserMenu}>
+            <div className={styles.UserMenu} ref={menuRef}>
               <img
                 className={styles.UserContainer__Picture}
                 src="./src/assets/profile/cat_profilepicture.jpg"
