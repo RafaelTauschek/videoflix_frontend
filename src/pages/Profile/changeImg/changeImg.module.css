@@ -1,0 +1,25 @@
+.avatarPickerContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* width: 100%; */
+    padding-bottom: 80px;
+}
+
+.pickImgHeader{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-left: 16px;
+}
+
+.VideoContainer{
+    padding-left: 40px;
+}
+
+
+.imagesInSlider{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}

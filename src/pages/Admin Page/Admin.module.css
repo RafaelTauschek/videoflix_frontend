@@ -1,0 +1,79 @@
+.uploadContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 80px;
+}
+
+.uploadForm {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.upload_dialog {
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.upload_btns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.upload_button {
+  width: 45%;
+  border: 2px solid white !important;
+  background-color: transparent !important;
+  font-weight: bold !important;
+}
+
+.upload_button:hover {
+    border: 0px;
+    background-color: white !important;
+    color: black;
+    font-weight: bold !important;
+  }
+
+.SignInHeader {
+  font-size: 2.7em !important;
+  margin-bottom: 40px !important;
+}
+
+.loginForm {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.register_btns {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-top: 24px;
+  width: 100%;
+}
+
+.registration {
+  background-color: rgb(229, 9, 20) !important;
+  font-weight: bold !important;
+  width: 200px;
+}
+
+.registration:hover {
+  background-color: rgba(229, 9, 20, 0.8) !important;
+}
+
+.backToMain {
+  background-color: rgba(128, 128, 128, 0.4) !important;
+}
+
+.backToMain:hover {
+  background-color: rgba(128, 128, 128, 0.4) !important;
+}
