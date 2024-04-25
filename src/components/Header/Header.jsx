@@ -47,11 +47,13 @@ export default function Header({ onSelectCategory }) {
     <header className={styles.Header}>
       <div className={styles.HeaderLeft}>
         <div>
+          <a onClick={() => navigate("/main")}>
           <img
             className={styles.Logo}
             src="./src/assets/logo/logo.png"
             alt="logo"
           />
+          </a>
         </div>
         <ul className={styles.OptionList}>
           <li
