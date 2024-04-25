@@ -3,11 +3,13 @@ import styles from "./Header.module.css";
 import SearchIcon from "@mui/icons-material/Search";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import { logout } from "../../services/AuthServices/authService";
+import { useNavigate } from "react-router-dom";
 
 export default function Header({ onSelectCategory }) {
   const [menuVisible, setMenuVisible] = useState(false);
   const menuContainerRef = useRef(null);
   const menuRef = useRef(null);
+  const navigate = useNavigate();
 
   const handleCategoryClick = (category) => {
     onSelectCategory(category);
@@ -89,13 +91,13 @@ export default function Header({ onSelectCategory }) {
                 src="./src/assets/profile/cat_profilepicture.jpg"
                 alt="profilepicture"
               />
-              <span onClick={handleMenuClick} className={styles.UserMenu__Item}>
+              <span onClick={() => navigate("/profile")} className={styles.UserMenu__Item}>
                 Profile
               </span>
-              <span onClick={handleMenuClick} className={styles.UserMenu__Item}>
+              <span onClick={() => navigate("/upload")} className={styles.UserMenu__Item}>
                 Admin Page
               </span>
-              <span onClick={handleLogoutClick.bind(this)} className={styles.UserMenu__Item}>
+              <span onClick={handleLogoutClick} className={styles.UserMenu__Item}>
                 Logout
               </span>
             </div>
