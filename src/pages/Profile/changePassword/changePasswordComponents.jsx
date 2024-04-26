@@ -47,8 +47,9 @@ export default function ChangePasswordComponent({ onPasswordChangeClick }) {
           noValidate
           autoComplete="off"
           onSubmit={formik.handleSubmit}
+          className={styles.profileBoxContent}
         >
-          <h1>Neues Passwort festlegen</h1>
+          <h1 className={styles.changePassword_h1}>Neues Passwort festlegen</h1>
           {formik.errors.submit && (
             <div style={{ color: "red", marginTop: "-30px" }}>
               {formik.errors.submit}
