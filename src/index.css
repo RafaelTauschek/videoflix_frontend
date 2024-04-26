@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -67,5 +71,13 @@ button:focus-visible {
 }
 
 .css-1jy569b-MuiFormLabel-root-MuiInputLabel-root {
+  color: rgba(255, 255, 255, 0.8)!important;
+}
+
+.css-dpjnhs-MuiInputBase-root-MuiOutlinedInput-root{
+  color: rgba(255, 255, 255, 0.8)!important;
+}
+
+.css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root{
   color: rgba(255, 255, 255, 0.8)!important;
 }

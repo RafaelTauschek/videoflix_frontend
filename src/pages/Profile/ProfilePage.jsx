@@ -38,23 +38,28 @@ export default function ProfilePage() {
   });
 
   return (
-    <div className={styles.MainPageContainer}>
-      <Header onSelectCategory={handleCategoryChange}></Header>
-      {!showChangePassword && !showChangeImg &&(
-        <div>
-          <EditProfileComponent onPasswordChangeClick={toggleChangePassword} onImgChangeClick={toggleChangeImg} />
-        </div>
-      )}
-      {showChangeImg && (
-        <div>
-          <ProfilImgComponent onImgChangeClick={toggleChangeImg}/>
-        </div>
-      )}
-      {showChangePassword && (
-        <div>
-          <ChangePasswordComponent onPasswordChangeClick={toggleChangePassword}/>
-        </div>
-      )}
-    </div>
+      <div className={styles.MainPageContainer}>
+        <Header onSelectCategory={handleCategoryChange}></Header>
+        {!showChangePassword && !showChangeImg && (
+          <div>
+            <EditProfileComponent
+              onPasswordChangeClick={toggleChangePassword}
+              onImgChangeClick={toggleChangeImg}
+            />
+          </div>
+        )}
+        {showChangeImg && (
+          <div style={{overflowX: "hidden"}}>
+            <ProfilImgComponent onImgChangeClick={toggleChangeImg} />
+          </div>
+        )}
+        {showChangePassword && (
+          <div>
+            <ChangePasswordComponent
+              onPasswordChangeClick={toggleChangePassword}
+            />
+          </div>
+        )}
+      </div>
   );
 }

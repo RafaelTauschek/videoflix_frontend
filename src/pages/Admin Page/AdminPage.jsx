@@ -13,10 +13,10 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
-import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
 export default function AdminPage() {
   const VisuallyHiddenInput = styled("input")({
@@ -55,19 +55,9 @@ export default function AdminPage() {
       confirmPassword: "",
     },
     validationSchema: Yup.object({
-      email: Yup.string()
-        .email("Ungültige E-Mail-Adresse")
-        .required("E-Mail ist erforderlich"),
-      password: Yup.string()
-        .min(5, "Das Passwort muss mindestens 5 Zeichen lang sein")
-        .matches(
-          /[!@#$%^&*(),.?":{}|<>]/,
-          "Passwort muss ein Sonderzeichen enthalten"
-        )
-        .required("Passwort ist erforderlich"),
-      confirmPassword: Yup.string()
-        .oneOf([Yup.ref("password"), null], "Passwörter müssen übereinstimmen")
-        .required("Passwortbestätigung ist erforderlich"),
+      title: Yup.string().required("Title ist erforderlich"),
+      short_description: Yup.string().required("Kurzbeschreibung ist erforderlich"),
+      long_description: Yup.string().required("Beschreibung ist erforderlich"),
     }),
     onSubmit: (values, { setSubmitting, setErrors }) => {
       register(values.email, values.password)
@@ -103,9 +93,9 @@ export default function AdminPage() {
                   label="Title"
                   name="title"
                   onChange={formik.handleChange}
-                  value={formik.values.email}
-                  error={formik.touched.email && Boolean(formik.errors.email)}
-                  helperText={formik.touched.email && formik.errors.email}
+                  value={formik.values.title}
+                  error={formik.touched.title && Boolean(formik.errors.title)}
+                  helperText={formik.touched.title && formik.errors.title}
                 />
                 <TextField
                   label="Kurzbeschreibung"
@@ -113,11 +103,11 @@ export default function AdminPage() {
                   multiline
                   rows={4}
                   onChange={formik.handleChange}
-                  value={formik.values.password}
+                  value={formik.values.short_description}
                   error={
-                    formik.touched.password && Boolean(formik.errors.password)
+                    formik.touched.short_description && Boolean(formik.errors.short_description)
                   }
-                  helperText={formik.touched.password && formik.errors.password}
+                  helperText={formik.touched.short_description && formik.errors.short_description}
                 />
                 <TextField
                   label="Langbeschreibung "
@@ -125,14 +115,14 @@ export default function AdminPage() {
                   multiline
                   rows={4}
                   onChange={formik.handleChange}
-                  value={formik.values.confirmPassword}
+                  value={formik.values.long_description}
                   error={
-                    formik.touched.confirmPassword &&
-                    Boolean(formik.errors.confirmPassword)
+                    formik.touched.long_description &&
+                    Boolean(formik.errors.long_description)
                   }
                   helperText={
-                    formik.touched.confirmPassword &&
-                    formik.errors.confirmPassword
+                    formik.touched.long_description &&
+                    formik.errors.long_description
                   }
                 />
                 <div className={styles.upload_btns}>
@@ -174,9 +164,12 @@ export default function AdminPage() {
                     <MenuItem value={18}>18</MenuItem>
                   </Select>
                 </FormControl>
-                <LocalizationProvider dateAdapter={AdapterDayjs} >
-                  <DemoContainer components={["DatePicker", "DatePicker"]} style={{width: "100%"}}>
-                    <DatePicker label={'Erscheinungsjahr'} openTo="year" />
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <DemoContainer
+                    components={["DatePicker", "DatePicker"]}
+                    style={{ width: "100%" }}
+                  >
+                    <DatePicker label={"Erscheinungsjahr"} openTo="year" />
                   </DemoContainer>
                 </LocalizationProvider>
                 <FormControl fullWidth>
@@ -195,7 +188,9 @@ export default function AdminPage() {
                     <MenuItem value={"Adventure"}>Adventure</MenuItem>
                     <MenuItem value={"Drama"}>Drama</MenuItem>
                     <MenuItem value={"Western"}>Western</MenuItem>
-                    <MenuItem value={"Science fiction"}>Science fiction</MenuItem>
+                    <MenuItem value={"Science fiction"}>
+                      Science fiction
+                    </MenuItem>
                     <MenuItem value={"Documentry"}>Documentry</MenuItem>
                     <MenuItem value={"Mystery"}>Mystery</MenuItem>
                     <MenuItem value={"Romance"}>Romance</MenuItem>
@@ -205,7 +200,9 @@ export default function AdminPage() {
                   </Select>
                 </FormControl>
                 <FormControl fullWidth>
-                  <InputLabel id="demo-simple-select-label">Category</InputLabel>
+                  <InputLabel id="demo-simple-select-label">
+                    Category
+                  </InputLabel>
                   <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
