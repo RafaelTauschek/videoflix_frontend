@@ -43,6 +43,7 @@ export default function EditProfileComponent({
           noValidate
           autoComplete="off"
           onSubmit={formik.handleSubmit}
+          className={styles.profileBoxContent}
         >
           <h1>Max Mustermann</h1>
           {formik.errors.submit && (
