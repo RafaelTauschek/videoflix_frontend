@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import { styled } from "@mui/material/styles";
 import FormControl from "@mui/material/FormControl";
+import FormHelperText from "@mui/material/FormHelperText";
 import Select from "@mui/material/Select";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
@@ -34,47 +35,45 @@ export default function AdminPage() {
     setSelectedCategory(category);
     setSelectedVideo(null);
   };
+  const handleDateChange = (date) => {
+    formik.setFieldValue("date", date);
+  };
   const navigate = useNavigate();
-  const [fsk, setFSK] = React.useState("");
-  const handleFSK = (event) => {
-    setFSK(event.target.value);
-  };
-  const [genre, setGenre] = React.useState("");
-  const handleGenre = (event) => {
-    setGenre(event.target.value);
-  };
-  const [category, setCategory] = React.useState("");
-  const handleCategory = (event) => {
-    setCategory(event.target.value);
-  };
-
-  const [videoFileName, setVideoFileName] = useState("");
   const handleVideoFileChange = (event) => {
     const file = event.target.files[0];
     if (file && file.type.startsWith("video/")) {
-      setVideoFileName(file.name);
+      formik.setFieldValue("videoFile", file);
+      formik.setFieldValue("videoFileName", file.name);
     } else {
-      alert("Bitte wähle eine Videodatei.");
-      setVideoFileName("");
+      formik.setFieldValue("videoFile", null);
+      formik.setFieldValue("videoFileName", "");
     }
   };
 
-  const [imgFileName, setImgFileName] = useState("");
   const handleImgFileChange = (event) => {
     const file = event.target.files[0];
     if (file && file.type.startsWith("image/")) {
-      setImgFileName(file.name);
+      formik.setFieldValue("thumbnail", file);
+      formik.setFieldValue("thumbnailName", file.name);
     } else {
-      alert("Bitte wähle eine Bilddatei.");
-      setImgFileName("");
+      formik.setFieldValue("thumbnail", null);
+      formik.setFieldValue("thumbnailName", "");
     }
   };
 
   const formik = useFormik({
     initialValues: {
-      email: "",
-      password: "",
-      confirmPassword: "",
+      title: "",
+      short_description: "",
+      long_description: "",
+      fsk: "",
+      date: null,
+      genre: "",
+      category: "",
+      videoFile: null,
+      videoFileName: "",
+      thumbnail: null,
+      thumbnailName: "",
     },
     validationSchema: Yup.object({
       title: Yup.string().required("Title ist erforderlich"),
@@ -82,6 +81,34 @@ export default function AdminPage() {
         "Kurzbeschreibung ist erforderlich"
       ),
       long_description: Yup.string().required("Beschreibung ist erforderlich"),
+      fsk: Yup.string().required("FSK ist erforderlich"),
+      date: Yup.string().required("Erscheinungsjahr ist erforderlich"),
+      genre: Yup.string().required("Genre ist erforderlich"),
+      category: Yup.string().required("Kategorie ist erforderlich"),
+      videoFile: Yup.mixed()
+        .required("Ein Video ist erforderlich")
+        .test(
+          "fileType",
+          "Ungültiges Dateiformat",
+          (value) => value && value.type.startsWith("video/")
+        )
+        .test(
+          "fileSize",
+          "Die Datei ist zu groß",
+          (value) => value && value.size <= 104857600
+        ),
+      thumbnail: Yup.mixed()
+        .required("Ein Thumbnail ist erforderlich")
+        .test(
+          "fileType",
+          "Ungültiges Dateiformat",
+          (value) => value && value.type.startsWith("image/")
+        )
+        .test(
+          "fileSize",
+          "Die Datei ist zu groß",
+          (value) => value && value.size <= 104857600
+        ),
     }),
     onSubmit: (values, { setSubmitting, setErrors }) => {
       register(values.email, values.password)
@@ -153,37 +180,64 @@ export default function AdminPage() {
                     formik.errors.long_description
                   }
                 />
-                <FormControl fullWidth>
-                  <InputLabel id="demo-simple-select-label">FSK</InputLabel>
+                <FormControl
+                  fullWidth
+                  error={formik.touched.fsk && Boolean(formik.errors.fsk)}
+                >
+                  <InputLabel id="fsk-label">FSK</InputLabel>
                   <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    value={fsk}
+                    labelId="fsk-label"
+                    id="fsk"
+                    name="fsk"
+                    value={formik.values.fsk}
                     label="FSK"
-                    onChange={handleFSK}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
                   >
                     <MenuItem value={6}>6</MenuItem>
                     <MenuItem value={12}>12</MenuItem>
                     <MenuItem value={16}>16</MenuItem>
                     <MenuItem value={18}>18</MenuItem>
                   </Select>
+                  {formik.touched.fsk && formik.errors.fsk && (
+                    <FormHelperText>{formik.errors.fsk}</FormHelperText>
+                  )}
                 </FormControl>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DemoContainer
                     components={["DatePicker", "DatePicker"]}
                     style={{ width: "100%" }}
                   >
-                    <DatePicker label={"Erscheinungsjahr"} openTo="year" />
+                    <DatePicker
+                      label={"Erscheinungsjahr"}
+                      name="date"
+                      openTo="year"
+                      views={["year"]}
+                      value={formik.values.date}
+                      onChange={handleDateChange}
+                    />
+                    {formik.touched.date && formik.errors.date && (
+                      <FormHelperText
+                        style={{
+                          color: "#d32f2f",
+                          paddingLeft: "14px",
+                          marginTop: "3px",
+                        }}
+                      >
+                        {formik.errors.date}
+                      </FormHelperText>
+                    )}
                   </DemoContainer>
                 </LocalizationProvider>
                 <FormControl fullWidth>
                   <InputLabel id="demo-simple-select-label">Genre</InputLabel>
                   <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    value={genre}
+                    id="genre"
+                    name="genre"
+                    value={formik.values.genre}
                     label="Genre"
-                    onChange={handleGenre}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
                   >
                     <MenuItem value={"Thriller"}>Thriller</MenuItem>
                     <MenuItem value={"Fantasy"}>Fantasy</MenuItem>
@@ -202,40 +256,72 @@ export default function AdminPage() {
                     <MenuItem value={"Horror"}>Horror</MenuItem>
                     <MenuItem value={"Sport"}>Sport</MenuItem>
                   </Select>
+                  {formik.touched.genre && formik.errors.genre && (
+                    <FormHelperText
+                      style={{ color: "#d32f2f", marginTop: "3px" }}
+                    >
+                      {formik.errors.genre}
+                    </FormHelperText>
+                  )}
                 </FormControl>
+
                 <FormControl fullWidth>
                   <InputLabel id="demo-simple-select-label">
                     Category
                   </InputLabel>
                   <Select
                     labelId="demo-simple-select-label"
+                    name="category"
                     id="demo-simple-select"
-                    value={category}
+                    value={formik.values.category}
                     label="Category"
-                    onChange={handleCategory}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
                   >
                     <MenuItem value={"Movie"}>Movie</MenuItem>
                     <MenuItem value={"Show"}>Show</MenuItem>
                   </Select>
+                  {formik.touched.category && formik.errors.category && (
+                    <FormHelperText
+                      style={{ color: "#d32f2f", marginTop: "3px" }}
+                    >
+                      {formik.errors.category}
+                    </FormHelperText>
+                  )}
                 </FormControl>
+
                 <div className={styles.upload_btns}>
                   <div>
                     <Button
                       component="label"
-                      role={undefined}
                       variant="contained"
-                      tabIndex={-1}
                       startIcon={<CloudUploadIcon />}
                       className={styles.upload_button}
                     >
                       Upload Video
-                      <VisuallyHiddenInput
+                      <input
                         type="file"
                         accept="video/*"
+                        style={{ display: "none" }}
                         onChange={handleVideoFileChange}
+                        onBlur={formik.handleBlur}
                       />
                     </Button>
-                    {videoFileName && <p>Datei: {videoFileName}</p>}
+                    {formik.values.videoFileName && (
+                      <p>Datei: {formik.values.videoFileName}</p>
+                    )}
+                    {formik.touched.videoFile && formik.errors.videoFile && (
+                      <div
+                        style={{
+                          color: "#d32f2f",
+                          marginTop: "3px",
+                          fontSize: "0.75rem",
+                          marginLeft: "14px",
+                        }}
+                      >
+                        {formik.errors.videoFile}
+                      </div>
+                    )}
                   </div>
                   <div>
                     <Button
@@ -251,9 +337,24 @@ export default function AdminPage() {
                         type="file"
                         accept="image/png, image/jpeg"
                         onChange={handleImgFileChange}
+                        onBlur={formik.handleBlur}
                       />
                     </Button>
-                    {imgFileName && <p>Datei: {imgFileName}</p>}
+                    {formik.values.thumbnailName && (
+                      <p>Datei: {formik.values.thumbnailName}</p>
+                    )}
+                    {formik.touched.thumbnail && formik.errors.thumbnail && (
+                      <div
+                        style={{
+                          color: "#d32f2f",
+                          marginTop: "3px",
+                          fontSize: "0.75rem",
+                          marginLeft: "14px",
+                        }}
+                      >
+                        {formik.errors.thumbnail}
+                      </div>
+                    )}
                   </div>
                 </div>
                 <div className={styles.register_btns}>
