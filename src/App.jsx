@@ -14,21 +14,9 @@ import ImpressumPage from "./pages/Legal/Imprint/ImprintPage";
 import PrivacyPolicyPage from "./pages/Legal/PrivatePolicy/PrivatePolicyPage";
 
 import { Routes, Route } from "react-router-dom";
-import { get } from "./services/HTTPS/http";
 
 function App() {
-  const BASE_URL = "http://127.0.0.1:8000/";
-  const [videos, setVideos] = useState([]);
 
-  useEffect(() => {
-    get(BASE_URL + "videos/")
-      .then((response) => {
-        setVideos(response.body);
-      })
-      .catch((error) => {
-        console.error("Error ", error);
-      });
-  }, []);
 
   return (
     <>
@@ -39,7 +27,7 @@ function App() {
         <Route path="/forgotPassword" element={<EmailForForgetPassword />} />
         <Route path="/forgot-password-notification" element={<ForgotPassword />}/>
         <Route path="/forgot-password-reset/:uid/:token" element={<ResetPassword />}/>
-        <Route path="/main" element={<MainPage videos={videos} />} />
+        <Route path="/main" element={<MainPage/>} />
 
         <Route path="/upload" element={<AdminPage />} />
         <Route path="/profile" element={<ProfilePage />} />

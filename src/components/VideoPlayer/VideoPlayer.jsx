@@ -11,24 +11,44 @@ import SettingsIcon from "@mui/icons-material/Settings";
 
 export default function VideoPlayer({ video, returnFromVideoPlayer }) {
   const BASE_URL = "http://127.0.0.1:8000";
-  const [playing, setPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [resolution, setResolution] = useState("1080p");
   const playerRef = useRef(null);
   const [settingMenu, setSettingMenu] = useState(false);
+  const [showHud, setShowHud] = useState(true)
+  const [hideTimer, setHideTimer] = useState(null)
 
-  const togglePlayPause = () => {
-    setPlaying(!playing);
-    if (playerRef.current.paused) {
-      playerRef.current.play();
-    } else {
-      playerRef.current.pause();
-    }
-  };
+
+  const showHudWithTimeout = () => {
+    setShowHud(true);
+    clearTimeout(hideTimer);
+    const timer = setTimeout(() => setShowHud(false), 3000);
+    setHideTimer(timer);
+  }
 
   useEffect(() => {
-    console.log("Recieved Video in VideoPlayer: ", video);
-  });
+    const timer = setTimeout(() => {
+      setShowHud(false);
+    }, 3000);
+    setHideTimer(timer);
+  
+    return () => clearTimeout(timer);
+  }, [showHud]);
+
+  const handleMouseMove = () => {
+    if (!showHud) {
+      showHudWithTimeout();
+    }
+  }
+
+  const playVideo = () => {
+    playerRef.current.play();
+  }
+
+  const stopVideo = () => {
+    playerRef.current.pause();
+  }
+
 
   const handleProgress = () => {
     const currentTime = playerRef.current.currentTime;
@@ -37,6 +57,7 @@ export default function VideoPlayer({ video, returnFromVideoPlayer }) {
 
   const handleResolutionChange = (resolution) => {
     setResolution(resolution);
+    setSettingMenu(false);
   };
 
   const [value, setValue] = useState(30);
@@ -50,23 +71,9 @@ export default function VideoPlayer({ video, returnFromVideoPlayer }) {
   };
 
   const handleBackClick = () => {
-    console.log("Backclick was clicked!");
     returnFromVideoPlayer();
   };
 
-  const toggleFullScreen = () => {
-    if (playerRef.current) {
-      if (playerRef.current.requestFullscreen) {
-        playerRef.current.requestFullscreen();
-      } else if (playerRef.current.mozRequestFullScreen) {
-        playerRef.current.mozRequestFullScreen();
-      } else if (playerRef.current.webkitRequestFullscreen) {
-        playerRef.current.webkitRequestFullscreen();
-      } else if (playerRef.current.msRequestFullscreen) {
-        playerRef.current.msRequestFullscreen();
-      }
-    }
-  }
 
 
 
@@ -78,12 +85,13 @@ export default function VideoPlayer({ video, returnFromVideoPlayer }) {
   };
 
   return (
-    <div className={styles.VideoPlayer__Wrapper}>
+    <div className={styles.VideoPlayer__Wrapper} onMouseMove={handleMouseMove}>
       {video && Object.keys(video).length > 0 && (
         <div className={styles.VideoPlayer__Container}>
-          <div className={styles.Hud}>
+          {showHud && (
+            <div className={styles.Hud}>
             <div className={styles.Hud__Top}>
-              <ArrowBackIosIcon onClick={handleBackClick} />
+              <ArrowBackIosIcon className={styles.ArrowBack} onClick={handleBackClick} />
               <span className={styles.Hud__Top__Title}>
                 {video.video.title}
               </span>
@@ -91,8 +99,8 @@ export default function VideoPlayer({ video, returnFromVideoPlayer }) {
             <div className={styles.Hud__Bottom}>
               <div className={styles.Hud__Bottom__Controls}>
                 <div className={styles.Controls__Mid}>
-                  <PlayArrowIcon onClick={togglePlayPause} />
-                  <PauseIcon onClick={togglePlayPause} />
+                  <PlayArrowIcon className={styles.PlayIcon} onClick={playVideo} />
+                  <PauseIcon className={styles.PauseIcon} onClick={stopVideo} />
                 </div>
                 <div className={styles.Controls__Right}>
                   <div className={styles.Volume__Container}>
@@ -108,7 +116,6 @@ export default function VideoPlayer({ video, returnFromVideoPlayer }) {
                       </div>
                     )}
                     <SettingsIcon onClick={handleSettingClick} />
-                    <FullscreenIcon onClick={toggleFullScreen}/>
                   </div>
                 </div>
               </div>
@@ -127,6 +134,8 @@ export default function VideoPlayer({ video, returnFromVideoPlayer }) {
               </div>
             </div>
           </div>
+          )}
+          
 
           <div className={styles.VideoPlayer}>
             <video

@@ -8,23 +8,32 @@ import AuthenticationCheck from "../../services/AuthServices/authenticationCheck
 import { get } from "../../services/HTTPS/http";
 import VideoPlayer from "../../components/VideoPlayer/VideoPlayer";
 
-export default function MainPage({ videos }) {
+export default function MainPage() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedGenre, setSelectedGenre] = useState("All");
   const [selectedVideo, setSelectedVideo] = useState(null);
   const BASE_URL = "http://127.0.0.1:8000/";
   const [videoDetail, setVideoDetail] = useState(null);
   const [videoPlayed, setVideoPlayed] = useState(false);
-
+  const [videos, setVideos] = useState([]);
 
   const getVideoDetail = (video) => {
-    console.log('Url: ', BASE_URL + `videos/${video.id}/`);
     get(BASE_URL + `videos/${video.id}/`).then((response) => {
       setVideoDetail(response.body);
     }).catch ((error) => {
       console.error(error);
     })
   }
+
+  useEffect(() => {
+    get(BASE_URL + "videos/")
+      .then((response) => {
+        setVideos(response.body);
+      })
+      .catch((error) => {
+        console.error("Error ", error);
+      });
+  }, []);
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
@@ -92,7 +101,7 @@ export default function MainPage({ videos }) {
           )}
         </>
       ) : (
-        <VideoPlayer returnFromVideoPlayer={returnFromVideoPlayer} video={videoDetail} />
+        <VideoPlayer className={styles.VideoPlayer} returnFromVideoPlayer={returnFromVideoPlayer} video={videoDetail} />
       )}
     </div>
   );

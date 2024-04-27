@@ -26,6 +26,10 @@
     align-items: center;
 }
 
+.ArrowBack {
+    cursor: pointer;
+}
+
 .Hud__Top__Title {
     font-weight: 500;
     font-size: 1.25em;
@@ -43,6 +47,11 @@
 
 .Controls__Mid {
     display: flex;
+}
+
+.PlayIcon,
+.PauseIcon {
+    cursor: pointer;
 }
 
 .Controls__Right {
