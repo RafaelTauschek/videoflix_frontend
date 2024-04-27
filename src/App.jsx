@@ -7,6 +7,8 @@ import EmailForForgetPassword from "./pages/Auth/ForgotPassword/ForgotPasswordAd
 import ResetPassword from "./pages/Auth/ForgotPassword/ForgotPasswordPage";
 import SendEmailNotificationPage from "./pages/Auth/Register/SendEmailNotificationPage";
 import MainPage from "./pages/Home/MainPage";
+import AdminPage from "./pages/Admin Page/AdminPage";
+import ProfilePage from "./pages/Profile/ProfilePage";
 
 import ImpressumPage from "./pages/Legal/Imprint/ImprintPage";
 import PrivacyPolicyPage from "./pages/Legal/PrivatePolicy/PrivatePolicyPage";
@@ -38,6 +40,10 @@ function App() {
         <Route path="/forgot-password-notification" element={<ForgotPassword />}/>
         <Route path="/forgot-password-reset/:uid/:token" element={<ResetPassword />}/>
         <Route path="/main" element={<MainPage videos={videos} />} />
+
+        <Route path="/upload" element={<AdminPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
+
         <Route path="/datenschutz" element={<PrivacyPolicyPage />} />
         <Route path="/imprint" element={<ImpressumPage />} />
         <Route path="/forgot-password-reset/:uid/:token" element={<ResetPassword />}/>

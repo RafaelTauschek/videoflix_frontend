@@ -1,0 +1,101 @@
+.avatarPickerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden; 
+  padding-bottom: 80px;
+}
+
+.avatarPickerContent {
+  max-width: 1440px;
+}
+
+.pickImgHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-left: 16px;
+}
+
+.VideoContainer {
+  padding-left: 40px;
+}
+
+.imgSize {
+  height: 160px;
+  width: auto !important;
+}
+
+@media (max-width: 1600px) {
+  .avatarPickerContent {
+    max-width: 1200px;
+  }
+}
+
+@media (max-width: 1350px) {
+  .avatarPickerContent {
+    max-width: 1000px;
+  }
+}
+
+@media (max-width: 1150px) {
+  .avatarPickerContent {
+    max-width: 950px;
+  }
+}
+
+@media (max-width: 1050px) {
+  .avatarPickerContent {
+    max-width: 650px;
+  }
+}
+
+@media (max-width: 800px) {
+  .avatarPickerContainer {
+    justify-content: unset;
+  }
+}
+
+@media (max-width: 720px) {
+  .avatarPickerContainer {
+    justify-content: center;
+  }
+  .VideoContent {
+    max-width: 450px;
+  }
+
+  .avatar_h1 {
+    font-size: 32px !important;
+    margin-bottom: 0px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .avatarPickerContainer {
+    justify-content: unset;
+  }
+  .avatarPickerContent {
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 520px) {
+  .VideoContent {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 460px) {
+  .VideoContent {
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 420px) {
+  .imgSize {
+    height: 100px;
+  }
+  .VideoContent {
+    max-width: 250px;
+  }
+}
