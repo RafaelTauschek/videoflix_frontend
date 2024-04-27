@@ -81,3 +81,15 @@ button:focus-visible {
 .css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root{
   color: rgba(255, 255, 255, 0.8)!important;
 }
+
+.css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root {
+  color: rgba(255, 255, 255, 0.8)!important;
+}
+
+.css-1yq5fb3-MuiButtonBase-root-MuiIconButton-root {
+  color: rgba(255, 255, 255, 0.8)!important;
+}
+
+.css-z3c6am-MuiFormControl-root-MuiTextField-root {
+  width: 100%;
+}

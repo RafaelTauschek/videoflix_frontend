@@ -48,6 +48,28 @@ export default function AdminPage() {
     setCategory(event.target.value);
   };
 
+  const [videoFileName, setVideoFileName] = useState("");
+  const handleVideoFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file && file.type.startsWith("video/")) {
+      setVideoFileName(file.name);
+    } else {
+      alert("Bitte wähle eine Videodatei.");
+      setVideoFileName("");
+    }
+  };
+
+  const [imgFileName, setImgFileName] = useState("");
+  const handleImgFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file && file.type.startsWith("image/")) {
+      setImgFileName(file.name);
+    } else {
+      alert("Bitte wähle eine Bilddatei.");
+      setImgFileName("");
+    }
+  };
+
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -56,7 +78,9 @@ export default function AdminPage() {
     },
     validationSchema: Yup.object({
       title: Yup.string().required("Title ist erforderlich"),
-      short_description: Yup.string().required("Kurzbeschreibung ist erforderlich"),
+      short_description: Yup.string().required(
+        "Kurzbeschreibung ist erforderlich"
+      ),
       long_description: Yup.string().required("Beschreibung ist erforderlich"),
     }),
     onSubmit: (values, { setSubmitting, setErrors }) => {
@@ -77,8 +101,8 @@ export default function AdminPage() {
     <div className={styles.MainPageContainer}>
       <Header onSelectCategory={handleCategoryChange}></Header>
       <div className={styles.uploadContainer}>
-        <div style={{ maxWidth: "1440px" }}>
-          <h1>Upload eines neuen Videos</h1>
+        <div>
+          <h1 className={styles.upload_h1}>Upload eines neuen Videos</h1>
           <div>
             <Box
               component="form"
@@ -105,9 +129,13 @@ export default function AdminPage() {
                   onChange={formik.handleChange}
                   value={formik.values.short_description}
                   error={
-                    formik.touched.short_description && Boolean(formik.errors.short_description)
+                    formik.touched.short_description &&
+                    Boolean(formik.errors.short_description)
                   }
-                  helperText={formik.touched.short_description && formik.errors.short_description}
+                  helperText={
+                    formik.touched.short_description &&
+                    formik.errors.short_description
+                  }
                 />
                 <TextField
                   label="Langbeschreibung "
@@ -125,30 +153,6 @@ export default function AdminPage() {
                     formik.errors.long_description
                   }
                 />
-                <div className={styles.upload_btns}>
-                  <Button
-                    component="label"
-                    role={undefined}
-                    variant="contained"
-                    tabIndex={-1}
-                    startIcon={<CloudUploadIcon />}
-                    className={styles.upload_button}
-                  >
-                    Upload Video
-                    <VisuallyHiddenInput type="file" />
-                  </Button>
-                  <Button
-                    component="label"
-                    role={undefined}
-                    variant="contained"
-                    tabIndex={-1}
-                    startIcon={<CloudUploadIcon />}
-                    className={styles.upload_button}
-                  >
-                    Upload Thumbnail
-                    <VisuallyHiddenInput type="file" />
-                  </Button>
-                </div>
                 <FormControl fullWidth>
                   <InputLabel id="demo-simple-select-label">FSK</InputLabel>
                   <Select
@@ -214,6 +218,44 @@ export default function AdminPage() {
                     <MenuItem value={"Show"}>Show</MenuItem>
                   </Select>
                 </FormControl>
+                <div className={styles.upload_btns}>
+                  <div>
+                    <Button
+                      component="label"
+                      role={undefined}
+                      variant="contained"
+                      tabIndex={-1}
+                      startIcon={<CloudUploadIcon />}
+                      className={styles.upload_button}
+                    >
+                      Upload Video
+                      <VisuallyHiddenInput
+                        type="file"
+                        accept="video/*"
+                        onChange={handleVideoFileChange}
+                      />
+                    </Button>
+                    {videoFileName && <p>Datei: {videoFileName}</p>}
+                  </div>
+                  <div>
+                    <Button
+                      component="label"
+                      role={undefined}
+                      variant="contained"
+                      tabIndex={-1}
+                      startIcon={<CloudUploadIcon />}
+                      className={styles.upload_button}
+                    >
+                      Upload Thumbnail
+                      <VisuallyHiddenInput
+                        type="file"
+                        accept="image/png, image/jpeg"
+                        onChange={handleImgFileChange}
+                      />
+                    </Button>
+                    {imgFileName && <p>Datei: {imgFileName}</p>}
+                  </div>
+                </div>
                 <div className={styles.register_btns}>
                   <Button
                     type="submit"
