@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styles from "./VideoDetailView.module.css";
-import { get } from "../../services/HTTPS/http";
 import CloseIcon from "@mui/icons-material/Close";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import AddIcon from "@mui/icons-material/Add";
@@ -10,12 +9,7 @@ export default function VideoDetailView({
   handleBackButtonClick,
   handlePlayVideoClick,
 }) {
-  const BASE_URL = "http://127.0.0.1:8000/";
-  const [videoDetail, setVideoDetail] = useState({});
 
-  useEffect(() => {
-    console.log('Video recieved in detail' , video);
-  })
 
   const handleBackClick = () => {
     handleBackButtonClick();
@@ -29,7 +23,6 @@ export default function VideoDetailView({
     Show: "TV Show",
     Movie: "Movie",
   };
-
 
   return (
     <div className={styles.VideoDetail__Container}>

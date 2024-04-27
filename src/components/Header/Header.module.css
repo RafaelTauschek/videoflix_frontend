@@ -67,9 +67,8 @@
     align-items: center;
     top: 0;
     right: 0;
-    height: 180px;
-    width: 120px;
-    padding: 40px 20px 0px 20px;
+    width: 150px;
+    padding: 40px 30px 20px 30px;
     background-color: #373942;
     gap: 10px;
     z-index: 2;

@@ -18,14 +18,17 @@
     flex-direction: column;
     justify-content: space-between;
     z-index: 1;
+    padding: 10px;
 }
 
 .Hud__Top {
-
+    display: flex;
+    align-items: center;
 }
 
 .Hud__Top__Title {
-
+    font-weight: 500;
+    font-size: 1.25em;
 }
 
 .Hud__Bottom {
@@ -46,17 +49,30 @@
     display: flex;
 }
 
-.Volume__Container {}
+.Volume__Container {
+    cursor: pointer;
+}
 
 .Setting__Container {
-
+    cursor: pointer;
+    position: relative;
 }
 
 .Setting__Menu {
-
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    margin-top: -90px;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    gap: 2px;
+    margin-left: -12px;
+    background-color: #373942;
 }
 
 .Hud__Bottom__Slider {
+    padding: 1px;
 }
 
 .VideoPlayer {
@@ -73,4 +89,5 @@
 .Video {
     height: 100%;
     width: 100%;
+    object-fit: cover;
 }

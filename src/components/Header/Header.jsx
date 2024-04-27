@@ -96,7 +96,7 @@ export default function Header({ onSelectCategory }) {
                 Profile
               </span>
               <span onClick={() => navigate("/upload")} className={styles.UserMenu__Item}>
-                Admin Page
+                Admin
               </span>
               <span onClick={handleLogoutClick} className={styles.UserMenu__Item}>
                 Logout
