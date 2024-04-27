@@ -99,7 +99,7 @@ export default function VideoTitle({ onSelectGenre, selectedCategory }) {
               Adventure
             </span>
             <span
-              onClick={() => handleSelectGenreClick("Animated")}
+              onClick={() => handleGenreClick("Animated")}
               className={styles.GenresMenu__Item}
             >
               Animated

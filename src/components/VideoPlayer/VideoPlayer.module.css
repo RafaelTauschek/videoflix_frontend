@@ -1,3 +1,76 @@
-* {
-    margin: 0;
-  }
+.VideoPlayer__Wrapper {
+    height: 100%;
+    width: 100%;
+}
+
+.VideoPlayer__Container {
+    height: 100%;
+    width: 100%;
+}
+
+.Hud {
+    position: absolute;
+    display: flex;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 1;
+}
+
+.Hud__Top {
+
+}
+
+.Hud__Top__Title {
+
+}
+
+.Hud__Bottom {
+    display: flex;
+    flex-direction: column;
+}
+
+.Hud__Bottom__Controls {
+    display: flex;
+    justify-content: center;
+}
+
+.Controls__Mid {
+    display: flex;
+}
+
+.Controls__Right {
+    display: flex;
+}
+
+.Volume__Container {}
+
+.Setting__Container {
+
+}
+
+.Setting__Menu {
+
+}
+
+.Hud__Bottom__Slider {
+}
+
+.VideoPlayer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+}
+
+
+.Video {
+    height: 100%;
+    width: 100%;
+}

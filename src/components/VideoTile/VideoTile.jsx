@@ -3,7 +3,7 @@ import styles from "./VideoTile.module.css";
 
 export default function VideoTile({ video, index, handleVideoClick }) {
   const handleClick = () => {
-    console.log('Handle Click in VideoTile');
+    console.log('Video from Tile -> handleVideoClick', video);
     handleVideoClick(video);
   };
 

@@ -18,7 +18,6 @@ export default function Header({ onSelectCategory }) {
    };
 
   const handleLogoutClick = () => {
-    console.log('Logout was called');
     logout();
     setMenuVisible(false);
   };
