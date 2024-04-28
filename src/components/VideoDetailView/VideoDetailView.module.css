@@ -128,7 +128,7 @@
     border-bottom: 2px solid #F9F9F933;
 }
 
-.VideoItem_Footer_Content {
+.VideoItem__Footer__Content {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 100px;
@@ -159,4 +159,26 @@
 
 .VideoDetail__Main__Description {
     font-size: 20px;
+}
+
+@media only screen and (max-width: 1024px) {
+    .VideoItem__Footer__Content {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .VideoItem__Footer {
+        margin-top: 40px;
+    }
+
+    .Footer__Header {
+        margin-bottom: 10px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .VideoItem__Description {
+        width: 50%;
+    }
 }

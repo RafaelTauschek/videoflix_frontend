@@ -9,8 +9,6 @@ export default function VideoDetailView({
   handleBackButtonClick,
   handlePlayVideoClick,
 }) {
-
-
   const handleBackClick = () => {
     handleBackButtonClick();
   };
@@ -51,9 +49,7 @@ export default function VideoDetailView({
               {categoryNames[video.category]}
             </span>
           </div>
-          <span className={styles.VideoItem__Title}>
-            {video.title}
-          </span>
+          <span className={styles.VideoItem__Title}>{video.title}</span>
           <span className={styles.VideoItem__Description}>
             {video.short_description}
           </span>
@@ -73,7 +69,7 @@ export default function VideoDetailView({
             <div className={styles.Footer__Header}>
               <span className={styles.Header__Title}>DETAILS</span>
             </div>
-            <div className={styles.VideoItem_Footer_Content}>
+            <div className={styles.VideoItem__Footer__Content}>
               <div className={styles.VideoItem__VideoDetail__Main}>
                 <span className={styles.VideoDetail__Main__Title}>
                   {video.title}
@@ -98,9 +94,7 @@ export default function VideoDetailView({
                 <span className={styles.VideoDetail_Title}>
                   Age restriction:
                 </span>
-                <span className={styles.VideoDetail_Content}>
-                  {video.fsk}
-                </span>
+                <span className={styles.VideoDetail_Content}>{video.fsk}</span>
               </div>
             </div>
           </div>
