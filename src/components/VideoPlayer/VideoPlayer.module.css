@@ -82,7 +82,7 @@
   justify-content: center;
   padding: 4px;
   gap: 2px;
-  margin-left: -12px;
+  margin-left: -25px;
   background-color: #373942;
 }
 
@@ -98,6 +98,7 @@
   right: 0;
   height: 100%;
   width: 100%;
+  overflow: hidden;
 }
 
 .Video {

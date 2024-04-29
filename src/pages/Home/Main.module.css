@@ -1,8 +1,10 @@
 .MainPageContainer {
     height: 100dvh;
     width: 100dvw;
+    padding: 4px;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 .VideoDetailView {

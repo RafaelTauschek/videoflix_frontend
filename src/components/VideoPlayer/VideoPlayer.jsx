@@ -22,14 +22,14 @@ export default function VideoPlayer({ video, returnFromVideoPlayer }) {
   const showHudWithTimeout = () => {
     setShowHud(true);
     clearTimeout(hideTimer);
-    const timer = setTimeout(() => setShowHud(false), 50000);
+    const timer = setTimeout(() => setShowHud(false), 3000);
     setHideTimer(timer);
   };
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowHud(false);
-    }, 50000);
+    }, 3000);
     setHideTimer(timer);
 
     return () => clearTimeout(timer);
@@ -107,7 +107,7 @@ export default function VideoPlayer({ video, returnFromVideoPlayer }) {
               <div className={styles.Hud__Bottom}>
                 <div className={styles.Hud__Bottom__Controls}>
                   <div className={styles.Controls__Left}>
-                  <div className={styles.Volume__Container}>
+                    <div className={styles.Volume__Container}>
                       <Box sx={{ width: 200 }}>
                         <Stack
                           spacing={2}
