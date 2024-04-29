@@ -24,6 +24,11 @@
 .imgSize {
   height: 160px;
   width: auto !important;
+  cursor: pointer;
+}
+
+.imgSize:hover {
+  transform: scale(1.05);
 }
 
 @media (max-width: 1600px) {

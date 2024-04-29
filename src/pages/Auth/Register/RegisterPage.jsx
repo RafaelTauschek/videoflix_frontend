@@ -35,8 +35,7 @@ export default function RegisterForm() {
     }),
     onSubmit: (values, { setSubmitting, setErrors }) => {
       register(values.email, values.password)
-        .then((response) => {
-          localStorage.setItem("token", response.body.token);
+        .then(() => {
           navigate("/email-notification");
         })
         .catch((error) => {

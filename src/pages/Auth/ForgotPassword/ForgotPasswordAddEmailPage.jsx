@@ -28,7 +28,6 @@ export default function EmailForForgetPassword() {
     onSubmit: (values, { setSubmitting, setErrors }) => {
       forgotPasswordMail(values.email)
         .then((response) => {
-          localStorage.setItem("token", response.body.token);
           navigate("/forgot-password-notification");
         })
         .catch((error) => {

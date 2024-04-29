@@ -4,38 +4,68 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import { useFormik } from "formik";
+import { changePassword } from "../../../services/AuthServices/authService";
 import * as Yup from "yup";
+import SuccessSnackbarIntroduction from "../../../components/NotificatoinComponents/SuccessNotification/SuccessNotification";
+import { useNavigate } from "react-router-dom";
 
 export default function ChangePasswordComponent({ onPasswordChangeClick }) {
+  const { handleOpenSnackbar, SnackbarComponent } =
+    SuccessSnackbarIntroduction();
+  const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
-      email: "",
-      firstname: "",
-      lastname: "",
+      current_password: "",
+      new_password: "",
+      confirm_password: "",
     },
     validationSchema: Yup.object({
-      password: Yup.string()
-        .min(8, "Passwort muss mindestens 8 Zeichen lang sein")
+      current_password: Yup.string()
+        .min(8, "Aktuelles Password muss mindestens 8 Zeichen lang sein")
         .matches(
           /[!@#$%^&*(),.?":{}|<>]/,
-          "Passwort muss ein Sonderzeichen enthalten"
+          "Aktuelles Password muss ein Sonderzeichen enthalten"
         )
-        .required("Passwort ist erforderlich"),
-      newPassword: Yup.string()
-        .min(8, "Passwort muss mindestens 8 Zeichen lang sein")
+        .required("Aktuelles Passwort ist erforderlich"),
+      new_password: Yup.string()
+        .min(8, "Neues Passwort muss mindestens 8 Zeichen lang sein")
         .matches(
           /[!@#$%^&*(),.?":{}|<>]/,
-          "Passwort muss ein Sonderzeichen enthalten"
+          "Neues Passwort muss ein Sonderzeichen enthalten"
         )
-        .required("Passwort ist erforderlich"),
-      repeatPassword: Yup.string()
-        .min(8, "Passwort muss mindestens 8 Zeichen lang sein")
-        .matches(
-          /[!@#$%^&*(),.?":{}|<>]/,
-          "Passwort muss ein Sonderzeichen enthalten"
-        )
-        .required("Passwort ist erforderlich"),
+        .required("Neues Passwort ist erforderlich"),
+      confirm_password: Yup.string()
+        .required("Passwort ist erforderlich")
+        .oneOf([Yup.ref("new_password")], "Passwörter müssen übereinstimmen"),
     }),
+
+    onSubmit: (values, { setSubmitting, setErrors }) => {
+      changePassword(
+        values.current_password,
+        values.new_password,
+        values.confirm_password
+      )
+        .then(() => {
+          handleOpenSnackbar("Success");
+          setTimeout(() => {
+            navigate("/main");
+          }, 3000);
+        })
+        .catch((error) => {
+          if (
+            error.response &&
+            error.response.body &&
+            error.response.body.error === "Das aktuelle Passwort ist falsch."
+          ) {
+            setErrors({
+              submit: "Das aktuelle Passwort wurde falsch angeben.",
+            });
+          } else {
+            setErrors({ submit: "Die Passwortänderung ist vergeschalgen" });
+          }
+          setSubmitting(false);
+        });
+    },
   });
 
   return (
@@ -58,35 +88,46 @@ export default function ChangePasswordComponent({ onPasswordChangeClick }) {
           <div className={styles.changePasswordForm}>
             <TextField
               label="Aktuelles Passwort"
-              name="currentPasswort"
+              name="current_password"
               onChange={formik.handleChange}
-              value={formik.values.password}
-              error={formik.touched.password && Boolean(formik.errors.password)}
-              helperText={formik.touched.password && formik.errors.password}
+              type="password"
+              value={formik.values.current_password}
+              error={
+                formik.touched.current_password &&
+                Boolean(formik.errors.current_password)
+              }
+              helperText={
+                formik.touched.current_password &&
+                formik.errors.current_password
+              }
             />
             <TextField
               label="Neues Passwort"
-              name="newPassword"
+              name="new_password"
               onChange={formik.handleChange}
-              value={formik.values.newPassword}
+              type="password"
+              value={formik.values.new_password}
               error={
-                formik.touched.newPassword && Boolean(formik.errors.newPassword)
+                formik.touched.new_password &&
+                Boolean(formik.errors.new_password)
               }
               helperText={
-                formik.touched.newPassword && formik.errors.newPassword
+                formik.touched.new_password && formik.errors.new_password
               }
             />
             <TextField
               label="Passwort Wiederholen"
-              name="repeatPassword"
+              name="confirm_password"
               onChange={formik.handleChange}
-              value={formik.values.repeatPassword}
+              type="password"
+              value={formik.values.confirm_password}
               error={
-                formik.touched.repeatPassword &&
-                Boolean(formik.errors.repeatPassword)
+                formik.touched.confirm_password &&
+                Boolean(formik.errors.confirm_password)
               }
               helperText={
-                formik.touched.repeatPassword && formik.errors.repeatPassword
+                formik.touched.confirm_password &&
+                formik.errors.confirm_password
               }
             />
             <div className={styles.changePassword_btns}>
@@ -110,6 +151,7 @@ export default function ChangePasswordComponent({ onPasswordChangeClick }) {
           </div>
         </Box>
       </div>
+      {SnackbarComponent}
     </div>
   );
 }

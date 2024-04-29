@@ -67,7 +67,7 @@ export default function SuccessSnackbarIntroduction() {
                     className="snackbar-description"
                     style={{ color: "white" }}
                   >
-                    Dien Passwort wurde angepasst.
+                    Diene Änderung wurde angepasst.
                   </p>
                 </div>
               </SnackbarContent>

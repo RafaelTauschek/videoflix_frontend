@@ -18,6 +18,7 @@ import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { post } from "../../services/HTTPS/http"
 
 export default function AdminPage() {
   const VisuallyHiddenInput = styled("input")({
@@ -111,15 +112,24 @@ export default function AdminPage() {
         ),
     }),
     onSubmit: (values, { setSubmitting, setErrors }) => {
-      register(values.email, values.password)
+      const BASE_URL = "http://127.0.0.1:8000/videos/"; 
+      const data = [
+        values.title,
+        values.short_description,
+        values.long_description,
+        values.fsk,
+        values.date.$y,
+        values.genre,
+        values.category,
+        values.videoFile,
+        values.thumbnail
+      ]
+      post(BASE_URL, data)
         .then((response) => {
-          localStorage.setItem("token", response.body.token);
-          navigate("/email-notification");
+          console.log(response)
         })
         .catch((error) => {
           console.error("Regestrierung fehlgeschlagen:", error);
-          setErrors({ submit: "Regestrierung fehlgeschlagen" });
-          setSubmitting(false);
         });
     },
   });

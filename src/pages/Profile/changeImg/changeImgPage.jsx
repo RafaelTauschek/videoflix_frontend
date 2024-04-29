@@ -2,11 +2,30 @@ import React, { useState, useEffect } from "react";
 import styles from "./changeImg.module.css";
 import { ChevronLeft } from "lucide-react";
 import IconButton from "@mui/material/IconButton";
+import { updateIMG } from "../../../services/AuthServices/authService";
 import Slider from "react-slick";
+import SuccessSnackbarIntroduction from "../../../components/NotificatoinComponents/SuccessNotification/SuccessNotification";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 export default function ProfilImgComponent({ onImgChangeClick }) {
+  const { handleOpenSnackbar, SnackbarComponent } =
+    SuccessSnackbarIntroduction();
+  const [error, setError] = useState("");
+
+  function handleProfileUpdate(img) {
+    updateIMG(img)
+      .then(() => {
+        handleOpenSnackbar("Success");
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000);
+      })
+      .catch((error) => {
+        setError("Etwas ist fehlgeschlagen");
+      });
+  }
+
   const settings = {
     dots: true,
     infinite: true,
@@ -141,7 +160,12 @@ export default function ProfilImgComponent({ onImgChangeClick }) {
             <div className="slider-container">
               <Slider {...settings}>
                 {classic.map((img, index) => (
-                  <img key={index} src={img.image} className={styles.imgSize} />
+                  <img
+                    onClick={() => handleProfileUpdate(img.image)}
+                    key={index}
+                    src={img.image}
+                    className={styles.imgSize}
+                  />
                 ))}
               </Slider>
             </div>
@@ -151,7 +175,12 @@ export default function ProfilImgComponent({ onImgChangeClick }) {
             <div className="slider-container">
               <Slider {...settings}>
                 {comic.map((img, index) => (
-                  <img key={index} src={img.image} className={styles.imgSize} />
+                  <img
+                    onClick={() => handleProfileUpdate(img.image)}
+                    key={index}
+                    src={img.image}
+                    className={styles.imgSize}
+                  />
                 ))}
               </Slider>
             </div>
@@ -161,7 +190,12 @@ export default function ProfilImgComponent({ onImgChangeClick }) {
             <div className="slider-container">
               <Slider {...settings}>
                 {anime.map((img, index) => (
-                  <img key={index} src={img.image} className={styles.imgSize} />
+                  <img
+                    onClick={() => handleProfileUpdate(img.image)}
+                    key={index}
+                    src={img.image}
+                    className={styles.imgSize}
+                  />
                 ))}
               </Slider>
             </div>
@@ -171,13 +205,19 @@ export default function ProfilImgComponent({ onImgChangeClick }) {
             <div className="slider-container">
               <Slider {...settings}>
                 {videosney.map((img, index) => (
-                  <img key={index} src={img.image} className={styles.imgSize} />
+                  <img
+                    onClick={() => handleProfileUpdate(img.image)}
+                    key={index}
+                    src={img.image}
+                    className={styles.imgSize}
+                  />
                 ))}
               </Slider>
             </div>
           </div>
         </div>
       </div>
+      {SnackbarComponent}
     </div>
   );
 }

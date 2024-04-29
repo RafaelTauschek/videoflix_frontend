@@ -4,6 +4,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import { logout } from "../../services/AuthServices/authService";
 import { useNavigate } from "react-router-dom";
+import { getProfile } from "../../services/AuthServices/authService";
 
 export default function Header({ onSelectCategory }) {
   const [menuVisible, setMenuVisible] = useState(false);
@@ -11,17 +12,37 @@ export default function Header({ onSelectCategory }) {
   const menuRef = useRef(null);
   const navigate = useNavigate();
 
+  const [userData, setUserData] = useState({
+    profile_img: ""
+  });
+
+  useEffect(() => {
+    getProfile().then((response) => {
+      setUserData({
+        profile_img: response.body.profile_img
+      });
+    });
+  }, []);
+
   const handleCategoryClick = (category) => {
     onSelectCategory(category);
   };
 
-   const handleMenuClick = () => {
-     setMenuVisible(!menuVisible);
-   };
+  const handleMenuClick = () => {
+    setMenuVisible(!menuVisible);
+  };
 
   const handleLogoutClick = () => {
-    logout();
-    setMenuVisible(false);
+    logout()
+      .then(() => {
+        localStorage.removeItem("token");
+        setMenuVisible(!menuVisible);
+        navigate("/");
+      })
+      .catch((error) => {
+        console.error("Logout fehlgeschlagen:", error);
+        setMenuVisible(!menuVisible);
+      });
   };
 
   const handleClickOutside = (event) => {
@@ -47,11 +68,11 @@ export default function Header({ onSelectCategory }) {
       <div className={styles.HeaderLeft}>
         <div>
           <a onClick={() => navigate("/main")}>
-          <img
-            className={styles.Logo}
-            src="./src/assets/logo/logo.png"
-            alt="logo"
-          />
+            <img
+              className={styles.Logo}
+              src="./src/assets/logo/logo.png"
+              alt="logo"
+            />
           </a>
         </div>
         <ul className={styles.OptionList}>
@@ -82,23 +103,34 @@ export default function Header({ onSelectCategory }) {
             onClick={handleMenuClick}
             className={styles.UserContainer__Picture}
             ref={menuContainerRef}
-            src="./src/assets/profile/cat_profilepicture.jpg"
+            // src="./src/assets/profile/cat_profilepicture.jpg"
+            src = {userData.profile_img}
             alt="profilepicture"
           />
           {menuVisible && (
             <div className={styles.UserMenu} ref={menuRef}>
               <img
                 className={styles.UserContainer__Picture}
-                src="./src/assets/profile/cat_profilepicture.jpg"
+                // src="./src/assets/profile/cat_profilepicture.jpg"
+                src = {userData.profile_img}
                 alt="profilepicture"
               />
-              <span onClick={() => navigate("/profile")} className={styles.UserMenu__Item}>
+              <span
+                onClick={() => navigate("/profile")}
+                className={styles.UserMenu__Item}
+              >
                 Profile
               </span>
-              <span onClick={() => navigate("/upload")} className={styles.UserMenu__Item}>
+              <span
+                onClick={() => navigate("/upload")}
+                className={styles.UserMenu__Item}
+              >
                 Admin
               </span>
-              <span onClick={handleLogoutClick} className={styles.UserMenu__Item}>
+              <span
+                onClick={handleLogoutClick}
+                className={styles.UserMenu__Item}
+              >
                 Logout
               </span>
             </div>

@@ -22,21 +22,6 @@ export default function ProfilePage() {
     setSelectedVideo(null);
   };
 
-  const formik = useFormik({
-    initialValues: {
-      email: "",
-      firstname: "",
-      lastname: "",
-    },
-    validationSchema: Yup.object({
-      email: Yup.string()
-        .email("Ungültige E-Mail-Adresse")
-        .required("E-Mail ist erforderlich"),
-      firstname: Yup.string().required("Vorname ist erforderlich"),
-      lastname: Yup.string().required("Nachname ist erforderlich"),
-    }),
-  });
-
   return (
       <div className={styles.MainPageContainer}>
         <Header onSelectCategory={handleCategoryChange}></Header>

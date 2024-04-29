@@ -5,7 +5,7 @@ export const get = (url) => {
 }
 
 export const post = (url, data) => {
-    return customClient.post(url).send(data);
+    return customClient.post(url, data);
 }
 
 export const put = (url, data) => {

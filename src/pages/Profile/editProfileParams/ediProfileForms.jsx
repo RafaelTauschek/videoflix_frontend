@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./editProfile.module.css";
 import { Pencil } from "lucide-react";
 import Box from "@mui/material/Box";
@@ -6,17 +6,39 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { updateProfile } from "../../../services/AuthServices/authService";
+import { getProfile } from "../../../services/AuthServices/authService";
+import SuccessSnackbarIntroduction from "../../../components/NotificatoinComponents/SuccessNotification/SuccessNotification";
+
 
 export default function EditProfileComponent({
   onPasswordChangeClick,
   onImgChangeClick,
 }) {
+  const [userData, setUserData] = useState({
+    email: "",
+    firstname: "",
+    lastname: "",
+    profile_img: ""
+  });
+
+  useEffect(() => {
+    getProfile().then((response) => {
+      setUserData({
+        email: response.body.email,
+        firstname: response.body.first_name,
+        lastname: response.body.last_name,
+        profile_img: response.body.profile_img
+      });
+    });
+  }, []);
+
+  const { handleOpenSnackbar, SnackbarComponent } =
+    SuccessSnackbarIntroduction();
+
   const formik = useFormik({
-    initialValues: {
-      email: "",
-      firstname: "",
-      lastname: "",
-    },
+    initialValues: userData,
+    enableReinitialize: true, 
     validationSchema: Yup.object({
       email: Yup.string()
         .email("Ungültige E-Mail-Adresse")
@@ -24,12 +46,22 @@ export default function EditProfileComponent({
       firstname: Yup.string().required("Vorname ist erforderlich"),
       lastname: Yup.string().required("Nachname ist erforderlich"),
     }),
+    onSubmit: (values, { setSubmitting, setErrors }) => {
+      updateProfile(values.email, values.firstname, values.lastname)
+        .then(() => {
+          handleOpenSnackbar("Success");
+        })
+        .catch(() => {
+          setErrors({ submit: "Etwas ist fehlgeschlagen" });
+          setSubmitting(false);
+        });
+    },
   });
 
   return (
     <>
       <div className={styles.profileImg}>
-        <img src="./src/assets/profile/cat_profilepicture.jpg" alt="" />
+        <img src={userData.profile_img} alt="" />
         <div className={styles.changeImgPencil} onClick={onImgChangeClick}>
           <div style={{ color: "white" }}>
             <Pencil width={"50"} height={"50"} />
@@ -45,7 +77,7 @@ export default function EditProfileComponent({
           onSubmit={formik.handleSubmit}
           className={styles.profileBoxContent}
         >
-          <h1>Max Mustermann</h1>
+          <h1>Angabe der Profildaten:</h1>
           {formik.errors.submit && (
             <div style={{ color: "red", marginTop: "-30px" }}>
               {formik.errors.submit}
@@ -98,6 +130,7 @@ export default function EditProfileComponent({
             </div>
           </div>
         </Box>
+        {SnackbarComponent}
       </div>
     </>
   );
