@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import styles from "./Header.module.css";
 import SearchIcon from "@mui/icons-material/Search";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import { useNavigate, useLocation } from "react-router-dom"; 
 import { logout } from "../../services/AuthServices/authService";
-import { useNavigate } from "react-router-dom";
 import { getProfile } from "../../services/AuthServices/authService";
 
 export default function Header({ onSelectCategory }) {
@@ -11,6 +11,7 @@ export default function Header({ onSelectCategory }) {
   const menuContainerRef = useRef(null);
   const menuRef = useRef(null);
   const navigate = useNavigate();
+  const location = useLocation(); 
 
   const [userData, setUserData] = useState({
     profile_img: ""
@@ -75,26 +76,28 @@ export default function Header({ onSelectCategory }) {
             />
           </a>
         </div>
-        <ul className={styles.OptionList}>
-          <li
-            className={styles.OptionList__Item}
-            onClick={() => handleCategoryClick("All")}
-          >
-            Home
-          </li>
-          <li
-            className={styles.OptionList__Item}
-            onClick={() => handleCategoryClick("Show")}
-          >
-            TV Shows
-          </li>
-          <li
-            className={styles.OptionList__Item}
-            onClick={() => handleCategoryClick("Movie")}
-          >
-            Movies
-          </li>
-        </ul>
+        {location.pathname === '/main' && (
+          <ul className={styles.OptionList}>
+            <li
+              className={styles.OptionList__Item}
+              onClick={() => handleCategoryClick("All")}
+            >
+              Home
+            </li>
+            <li
+              className={styles.OptionList__Item}
+              onClick={() => handleCategoryClick("Show")}
+            >
+              TV Shows
+            </li>
+            <li
+              className={styles.OptionList__Item}
+              onClick={() => handleCategoryClick("Movie")}
+            >
+              Movies
+            </li>
+          </ul>
+        )}
       </div>
       <div className={styles.HeaderRight}>
         {/* <SearchIcon className={styles.SearchIcon} /> */}

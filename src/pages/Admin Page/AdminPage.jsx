@@ -18,7 +18,7 @@ import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import { post } from "../../services/HTTPS/http"
+import { post } from "../../services/HTTPS/http";
 
 export default function AdminPage() {
   const VisuallyHiddenInput = styled("input")({
@@ -111,25 +111,47 @@ export default function AdminPage() {
           (value) => value && value.size <= 104857600
         ),
     }),
+    // onSubmit: (values, { setSubmitting, setErrors }) => {
+    //   const BASE_URL = "http://127.0.0.1:8000/videos/";
+    //   const data = {
+    //     title: values.title,
+    //     short_description: values.short_description,
+    //     long_description: values.long_description,
+    //     fsk: values.fsk,
+    //     release_year: values.date.$y,
+    //     genre: values.genre,
+    //     category: values.category,
+    //     video_file: values.videoFile,
+    //     thumbnail: values.thumbnail
+    //   }
+    //   post(BASE_URL, data)
+    //     .then((response) => {
+    //       console.log(response)
+    //     })
+    //     .catch((error) => {
+    //       console.error("Regestrierung fehlgeschlagen:", error);
+    //     });
+    // },
+
     onSubmit: (values, { setSubmitting, setErrors }) => {
-      const BASE_URL = "http://127.0.0.1:8000/videos/"; 
-      const data = [
-        values.title,
-        values.short_description,
-        values.long_description,
-        values.fsk,
-        values.date.$y,
-        values.genre,
-        values.category,
-        values.videoFile,
-        values.thumbnail
-      ]
-      post(BASE_URL, data)
+      const BASE_URL = "http://127.0.0.1:8000/videos/";
+      const formData = new FormData();
+      formData.append("title", values.title);
+      formData.append("short_description", values.short_description);
+      formData.append("long_description", values.long_description);
+      formData.append("fsk", values.fsk);
+      formData.append("release_year", values.date.$y);
+      formData.append("genre", values.genre);
+      formData.append("category", values.category);
+      formData.append("video_file", values.videoFile);
+      formData.append("thumbnail", values.thumbnail);
+
+      post(BASE_URL, formData)
         .then((response) => {
-          console.log(response)
+          console.log(response);
         })
         .catch((error) => {
-          console.error("Regestrierung fehlgeschlagen:", error);
+          console.error("Registrierung fehlgeschlagen:", error);
         });
     },
   });
@@ -204,6 +226,7 @@ export default function AdminPage() {
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                   >
+                    <MenuItem value={0}>0</MenuItem>
                     <MenuItem value={6}>6</MenuItem>
                     <MenuItem value={12}>12</MenuItem>
                     <MenuItem value={16}>16</MenuItem>
@@ -259,7 +282,7 @@ export default function AdminPage() {
                     <MenuItem value={"Science fiction"}>
                       Science fiction
                     </MenuItem>
-                    <MenuItem value={"Documentry"}>Documentry</MenuItem>
+                    <MenuItem value={"Documentary"}>Documentary</MenuItem>
                     <MenuItem value={"Mystery"}>Mystery</MenuItem>
                     <MenuItem value={"Romance"}>Romance</MenuItem>
                     <MenuItem value={"Satire"}>Satire</MenuItem>

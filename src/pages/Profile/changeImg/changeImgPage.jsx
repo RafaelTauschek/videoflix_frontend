@@ -22,6 +22,7 @@ export default function ProfilImgComponent({ onImgChangeClick }) {
         }, 1000);
       })
       .catch((error) => {
+        console.log(error)
         setError("Etwas ist fehlgeschlagen");
       });
   }
@@ -69,26 +70,11 @@ export default function ProfilImgComponent({ onImgChangeClick }) {
   };
 
   const classic = [
-    {
-      image:
-        "./src/assets/avatar/klassik/Default_standard_smile_boy_character_0.jpg",
-    },
-    {
-      image:
-        "./src/assets/avatar/klassik/Default_standard_smile_character_0.jpg",
-    },
-    {
-      image:
-        "./src/assets/avatar/klassik/Default_standard_smile_character_1 (1).jpg",
-    },
-    {
-      image:
-        "./src/assets/avatar/klassik/Default_standard_smile_character_1.jpg",
-    },
-    {
-      image:
-        "./src/assets/avatar/klassik/Default_standard_smile_man_character_0.jpg",
-    },
+    {image:"./src/assets/avatar/klassik/Default_standard_smile_boy_character_0.jpg",},
+    {image:"./src/assets/avatar/klassik/Default_standard_smile_character_0.jpg",},
+    {image:"./src/assets/avatar/klassik/Default_standard_smile_character_1 (1).jpg",},
+    {image:"./src/assets/avatar/klassik/Default_standard_smile_character_1.jpg",},
+    {image:"./src/assets/avatar/klassik/Default_standard_smile_man_character_0.jpg",},
   ];
 
   const comic = [
@@ -100,49 +86,19 @@ export default function ProfilImgComponent({ onImgChangeClick }) {
   ];
 
   const anime = [
-    {
-      image:
-        "./src/assets/avatar/anime/Default_one_piece_alternative_character_1.jpg",
-    },
-    {
-      image:
-        "./src/assets/avatar/anime/Default_one_piece_alternative_character_capton_0.jpg",
-    },
-    {
-      image:
-        "./src/assets/avatar/anime/Default_one_piece_alternative_character_capton_1.jpg",
-    },
-    {
-      image:
-        "./src/assets/avatar/anime/Default_one_piece_alternative_character_luffy_0.jpg",
-    },
-    {
-      image:
-        "./src/assets/avatar/anime/Default_one_piece_alternative_character_zoro_1.jpg",
-    },
+    {image:"./src/assets/avatar/anime/Default_one_piece_alternative_character_1.jpg",},
+    {image:"./src/assets/avatar/anime/Default_one_piece_alternative_character_capton_0.jpg",},
+    {image:"./src/assets/avatar/anime/Default_one_piece_alternative_character_capton_1.jpg",},
+    {image:"./src/assets/avatar/anime/Default_one_piece_alternative_character_luffy_0.jpg",},
+    {image:"./src/assets/avatar/anime/Default_one_piece_alternative_character_zoro_1.jpg",},
   ];
 
   const videosney = [
-    {
-      image:
-        "./src/assets/avatar/videosney/Default_just_one_disney_animal_alternativ_character_in_profile_0.jpg",
-    },
-    {
-      image:
-        "./src/assets/avatar/videosney/Default_just_one_disney_animal_alternativ_character_in_profile_1 (1).jpg",
-    },
-    {
-      image:
-        "./src/assets/avatar/videosney/Default_just_one_disney_animal_alternativ_character_in_profile_1 (2).jpg",
-    },
-    {
-      image:
-        "./src/assets/avatar/videosney/Default_just_one_disney_animal_alternativ_character_in_profile_1 (3).jpg",
-    },
-    {
-      image:
-        "./src/assets/avatar/videosney/Default_just_one_disney_animal_alternativ_character_in_profile_1.jpg",
-    },
+    {image:"./src/assets/avatar/videosney/Default_just_one_disney_animal_alternativ_character_in_profile_0.jpg",},
+    {image:"./src/assets/avatar/videosney/Default_just_one_disney_animal_alternativ_character_in_profile_1 (1).jpg",},
+    {image:"./src/assets/avatar/videosney/Default_just_one_disney_animal_alternativ_character_in_profile_1 (2).jpg",},
+    {image:"./src/assets/avatar/videosney/Default_just_one_disney_animal_alternativ_character_in_profile_1 (3).jpg",},
+    {image:"./src/assets/avatar/videosney/Default_just_one_disney_animal_alternativ_character_in_profile_1.jpg",},
   ];
 
   return (

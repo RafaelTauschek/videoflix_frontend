@@ -37,6 +37,7 @@ const customClient = {
       return response;
     });
   },
+
 };
 
 customClient.addRequestInterceptor((req) => {

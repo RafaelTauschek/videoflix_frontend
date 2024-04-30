@@ -84,11 +84,13 @@
   color: black !important;
 }
 
-@media (max-width: 550px) {
+@media (max-width: 650px) {
   .profileBox h1 {
     font-size: 40px !important;
   }
+}
 
+@media (max-width: 550px) {
   .profileBoxContent {
     width: 100% !important;
     margin-right: 24px;

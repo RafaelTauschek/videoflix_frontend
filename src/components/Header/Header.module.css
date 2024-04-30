@@ -13,6 +13,7 @@
 
 .Logo {
     transform: scale(0.7);
+    cursor: pointer;
 }
 
 .OptionList {
