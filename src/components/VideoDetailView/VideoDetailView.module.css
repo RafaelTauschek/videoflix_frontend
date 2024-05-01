@@ -1,184 +1,183 @@
 .VideoDetail__Container {
-    display: flex;
-    flex: 1;
+  display: flex;
+  flex: 1;
 }
 
-
 .VideoDetail {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    width: 100%;
-    padding: 30px;
-    z-index: 1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+  padding: 30px;
+  z-index: 1;
 }
 
 .GradientOverlay {
-    background: rgb(0,0,0);
-    background: linear-gradient(90deg, rgba(0,0,0,0.9332107843137255) 10%, rgba(0,0,0,0.7819502801120448) 43%, rgba(0,0,0,0) 74%);
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    left: 0;
-    bottom: 0;
-    z-index: 2;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.9332107843137255) 10%,
+    rgba(0, 0, 0, 0.7819502801120448) 43%,
+    rgba(0, 0, 0, 0) 74%
+  );
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
 }
 
-
 .Video_Detail__Bottom {
-    display: flex;
+  display: flex;
 }
 
 .BackButton {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    cursor: pointer;
-    z-index: 3;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+  z-index: 3;
 }
 
 .VideoItem__CategoryContainer {
-    display: flex;
-    gap: 5px;
-    z-index: 3;
-    font-size: 18px;
+  display: flex;
+  gap: 5px;
+  z-index: 3;
+  font-size: 18px;
 }
 
 .CategoryContainer__Img {
-    height: 20px;
-    object-fit: contain;
+  height: 20px;
+  object-fit: contain;
 }
 
-
 .VideoItem__ButtonContainer {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    padding-top: 30px;
-    z-index: 3;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding-top: 30px;
+  z-index: 3;
 }
 
 .VideoItem__Title {
-    z-index: 3;
-    font-size: 32px;
-    font-weight: 500;
+  z-index: 3;
+  font-size: 32px;
+  font-weight: 500;
 }
 
 .VideoItem__Description {
-    z-index: 3;
-    width: 40%;
-    text-align: left;
-    line-height: 120%;
-    font-size: 20px;
+  z-index: 3;
+  width: 40%;
+  text-align: left;
+  line-height: 120%;
+  font-size: 20px;
 }
 
 .ButtonContainer__Play {
-    display: flex;
-    padding: 4px;
-    border-radius: 4px;
-    background-color: white;
-    width: 150px;
-    height: 35px;
-    justify-content: center;
-    align-items: center;
-    gap: 4px;
-    cursor: pointer;
+  display: flex;
+  padding: 4px;
+  border-radius: 4px;
+  background-color: white;
+  width: 150px;
+  height: 35px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
 }
 
 .ButtonContainer__Save {
-    background-color: #4F4F4F;
-    padding: 4px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    cursor: pointer;
+  background-color: #4f4f4f;
+  padding: 4px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  cursor: pointer;
 }
 
 .PlayButton__Text {
-    color: black;
-    font-weight: 700;
-    font-size: 20px;
+  color: black;
+  font-weight: 700;
+  font-size: 20px;
 }
 
-
 .VideoItem__Footer {
-    display: flex;
-    flex-direction: column;
-    z-index: 3;
-    height: 100%;
-    justify-content: flex-end;
-    
+  display: flex;
+  flex-direction: column;
+  z-index: 3;
+  height: 100%;
+  justify-content: flex-end;
 }
 
 .Footer__Header {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
 }
 
-
 .Header__Title {
-    font-weight: 700;
-    font-size: 20px;
-    border-bottom: 2px solid #F9F9F933;
+  font-weight: 700;
+  font-size: 20px;
+  border-bottom: 2px solid #f9f9f933;
 }
 
 .VideoItem__Footer__Content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
 }
 
 .VideoItem__VideoDetail__Main {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .VideoItem__VideoDetails {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .VideoDetail_Title {
-    font-size: 20px;
-    color: rgb(177, 174, 174);
+  font-size: 20px;
+  color: rgb(177, 174, 174);
 }
 
 .VideoDetail_Content {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .VideoDetail__Main__Title {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .VideoDetail__Main__Description {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 @media only screen and (max-width: 1024px) {
-    .VideoItem__Footer__Content {
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-    }
+  .VideoItem__Footer__Content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
 
-    .VideoItem__Footer {
-        margin-top: 40px;
-    }
+  .VideoItem__Footer {
+    margin-top: 40px;
+  }
 
-    .Footer__Header {
-        margin-bottom: 10px;
-    }
+  .Footer__Header {
+    margin-bottom: 10px;
+  }
 }
 
 @media only screen and (max-width: 768px) {
-    .VideoItem__Description {
-        width: 50%;
-    }
+  .VideoItem__Description {
+    width: 50%;
+  }
 }

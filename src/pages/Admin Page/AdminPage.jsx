@@ -134,7 +134,7 @@ export default function AdminPage() {
     // },
 
     onSubmit: (values, { setSubmitting, setErrors }) => {
-      const BASE_URL = "http://127.0.0.1:8000/videos/";
+      const BASE_URL = "http://rafael-max.developerakademie.org/videos/";
       const formData = new FormData();
       formData.append("title", values.title);
       formData.append("short_description", values.short_description);
