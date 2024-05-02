@@ -1,6 +1,6 @@
 import superagent from "superagent";
 
-const BASE_URL = "http://127.0.0.1:8000/";
+const BASE_URL = "http://rafael-max.developerakademie.org/";
 
 //########################## Login ######################################
 export const login = (email, password) => {

@@ -11,7 +11,7 @@ import Stack from "@mui/material/Stack";
 import VolumeDown from "@mui/icons-material/VolumeDown";
 
 export default function VideoPlayer({ video, returnFromVideoPlayer }) {
-  const BASE_URL = "http://127.0.0.1:8000";
+  const BASE_URL = "http://rafael-max.developerakademie.org/";
   const [currentTime, setCurrentTime] = useState(0);
   const [resolution, setResolution] = useState("1080p");
   const playerRef = useRef(null);

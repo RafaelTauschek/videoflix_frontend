@@ -29,7 +29,7 @@ export default function VideoDetailView({
           className={styles.VideoDetail}
           style={{
             backgroundImage: `url(${
-              "http://127.0.0.1:8000" + video.thumbnail
+              "http://rafael-max.developerakademie.org/" + video.thumbnail
             })`,
           }}
         >
