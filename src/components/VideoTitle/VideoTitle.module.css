@@ -43,7 +43,6 @@
     background-color: #373942;
     border: 1px solid #242527;
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
     z-index: 2;
@@ -52,7 +51,9 @@
     min-width: 120px;
     transition: 250ms;
     animation: slideDown 0.25s ease-in;
-    overflow: hidden;
+    max-height: 300px;
+    overflow-y: auto;
+    scrollbar-width: thin;
 }
 
 .GenresMenu__Item {

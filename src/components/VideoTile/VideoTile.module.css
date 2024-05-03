@@ -9,6 +9,7 @@
     aspect-ratio: 2 / 1.25;
     transition: 125ms;
     cursor: pointer;
+    object-fit: cover;
 }
 
 .Video:hover {
