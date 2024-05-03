@@ -279,9 +279,8 @@ export default function AdminPage() {
                     <MenuItem value={"Adventure"}>Adventure</MenuItem>
                     <MenuItem value={"Drama"}>Drama</MenuItem>
                     <MenuItem value={"Western"}>Western</MenuItem>
-                    <MenuItem value={"Science fiction"}>
-                      Science fiction
-                    </MenuItem>
+                    <MenuItem value={"Animation"}>Animation</MenuItem>
+                    <MenuItem value={"Action"}>Action</MenuItem>
                     <MenuItem value={"Documentary"}>Documentary</MenuItem>
                     <MenuItem value={"Mystery"}>Mystery</MenuItem>
                     <MenuItem value={"Romance"}>Romance</MenuItem>

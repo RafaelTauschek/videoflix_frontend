@@ -135,12 +135,6 @@ export default function VideoTitle({ onSelectGenre, selectedCategory }) {
               Satire
             </span>
             <span
-              onClick={() => handleGenreClick("Science fiction")}
-              className={styles.GenresMenu__Item}
-            >
-              Science fiction
-            </span>
-            <span
               onClick={() => handleGenreClick("Sport")}
               className={styles.GenresMenu__Item}
             >
