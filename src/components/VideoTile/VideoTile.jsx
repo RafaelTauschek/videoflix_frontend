@@ -10,7 +10,7 @@ export default function VideoTile({ video, index, handleVideoClick }) {
     <div className={styles.VideoContainer} onClick={handleClick}>
       <img
         className={styles.Video}
-        src={"http://rafael-max.developerakademie.org/" + video.thumbnail}
+        src={"http://rafael-max.developerakademie.org" + video.thumbnail}
         alt={video.title}
       />
     </div>

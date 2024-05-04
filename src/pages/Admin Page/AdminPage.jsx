@@ -113,7 +113,7 @@ export default function AdminPage() {
     }),
 
     onSubmit: (values, { setSubmitting, setErrors }) => {
-      const BASE_URL = "http://rafael-max.developerakademie.org/";
+      const BASE_URL = "http://rafael-max.developerakademie.org/videos/";
       const formData = new FormData();
       formData.append("title", values.title);
       formData.append("short_description", values.short_description);
@@ -258,9 +258,8 @@ export default function AdminPage() {
                     <MenuItem value={"Adventure"}>Adventure</MenuItem>
                     <MenuItem value={"Drama"}>Drama</MenuItem>
                     <MenuItem value={"Western"}>Western</MenuItem>
-                    <MenuItem value={"Science fiction"}>
-                      Science fiction
-                    </MenuItem>
+                    <MenuItem value={"Animation"}>Animation</MenuItem>
+                    <MenuItem value={"Action"}>Action</MenuItem>
                     <MenuItem value={"Documentary"}>Documentary</MenuItem>
                     <MenuItem value={"Mystery"}>Mystery</MenuItem>
                     <MenuItem value={"Romance"}>Romance</MenuItem>
