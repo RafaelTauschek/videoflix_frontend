@@ -71,6 +71,7 @@ export default function VideoPlayer({ video, returnFromVideoPlayer }) {
 
   const handleVolumeChange = (event, newValue) => {
     setValue(newValue);
+    playerRef.current.volume = newValue / 100;
   };
 
   const handleSettingClick = () => {
@@ -82,10 +83,8 @@ export default function VideoPlayer({ video, returnFromVideoPlayer }) {
   };
 
   const handleProgressSlider = (event, newValue) => {
-    playerRef.current.pause();
-    setCurrentTime(newValue);
     playerRef.current.currentTime = newValue;
-    playerRef.current.play();
+    setCurrentTime(newValue);
   };
 
   return (

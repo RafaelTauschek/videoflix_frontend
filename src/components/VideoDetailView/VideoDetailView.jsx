@@ -41,7 +41,7 @@ export default function VideoDetailView({
             <div>
               <img
                 className={styles.CategoryContainer__Img}
-                src="./src/assets/logo/favicon.png"
+                src="assets/logo/favicon.png"
                 alt="logo"
               />
             </div>

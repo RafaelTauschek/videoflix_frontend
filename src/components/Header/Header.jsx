@@ -71,7 +71,7 @@ export default function Header({ onSelectCategory }) {
           <a onClick={() => navigate("/main")}>
             <img
               className={styles.Logo}
-              src="./src/assets/logo/logo.png"
+              src="assets/logo/logo.png"
               alt="logo"
             />
           </a>

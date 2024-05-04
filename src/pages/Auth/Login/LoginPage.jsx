@@ -82,7 +82,7 @@ export default function LoginForm() {
     <div className={styles.loginBackground}>
       <AuthenticationCheck />
       <div className={styles.logo}>
-        <img src="./src/assets/logo/logo.png" alt="" />
+        <img src="assets/logo/logo.png" alt="" />
       </div>
       <div className={styles.loginComponent}>
         <div>
