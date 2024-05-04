@@ -15,7 +15,7 @@ export default function SendEmailNotificationPage() {
   return (
     <div className={styles.loginBackground}>
       <div className={styles.logo}>
-        <img src="./src/assets/logo/logo.png" alt="" />
+        <img src="assets/logo/logo.png" alt="" />
       </div>
       <div className={styles.loginComponent}>
         <div>
