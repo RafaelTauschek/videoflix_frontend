@@ -111,30 +111,9 @@ export default function AdminPage() {
           (value) => value && value.size <= 104857600
         ),
     }),
-    // onSubmit: (values, { setSubmitting, setErrors }) => {
-    //   const BASE_URL = "http://127.0.0.1:8000/videos/";
-    //   const data = {
-    //     title: values.title,
-    //     short_description: values.short_description,
-    //     long_description: values.long_description,
-    //     fsk: values.fsk,
-    //     release_year: values.date.$y,
-    //     genre: values.genre,
-    //     category: values.category,
-    //     video_file: values.videoFile,
-    //     thumbnail: values.thumbnail
-    //   }
-    //   post(BASE_URL, data)
-    //     .then((response) => {
-    //       console.log(response)
-    //     })
-    //     .catch((error) => {
-    //       console.error("Regestrierung fehlgeschlagen:", error);
-    //     });
-    // },
 
     onSubmit: (values, { setSubmitting, setErrors }) => {
-      const BASE_URL = "http://127.0.0.1:8000/videos/";
+      const BASE_URL = "http://rafael-max.developerakademie.org/";
       const formData = new FormData();
       formData.append("title", values.title);
       formData.append("short_description", values.short_description);

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import styles from "./Imprint.module.css";
 import IconButton from "@mui/material/IconButton";
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 
 export default function ImpressumPage() {
   const navigate = useNavigate();
@@ -16,8 +16,11 @@ export default function ImpressumPage() {
               className={styles.arrowBackButton}
               onClick={() => navigate(-1)}
             >
-                <IconButton aria-label="delete" size="large" >
-                <ArrowBackIosIcon fontSize="inherit" className={styles.arrowBackButton}/>
+              <IconButton aria-label="delete" size="large">
+                <ArrowBackIosIcon
+                  fontSize="inherit"
+                  className={styles.arrowBackButton}
+                />
               </IconButton>
               <div />
             </div>

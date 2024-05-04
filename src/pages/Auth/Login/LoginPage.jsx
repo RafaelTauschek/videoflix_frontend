@@ -82,7 +82,7 @@ export default function LoginForm() {
     <div className={styles.loginBackground}>
       <AuthenticationCheck />
       <div className={styles.logo}>
-        <img src="./src/assets/logo/logo.png" alt="" />
+        <img src="./assets/logo/logo.png" alt="" />
       </div>
       <div className={styles.loginComponent}>
         <div>
@@ -102,6 +102,21 @@ export default function LoginForm() {
             )}
             <div className={styles.loginForm}>
               <TextField
+              sx={{
+                width: '100%',
+                '.MuiInputBase-root': {
+                  color: 'rgba(255, 255, 255, 0.8)',
+                },
+                '.MuiInputLabel-root': {
+                  color: 'rgba(255, 255, 255, 0.8)',
+                  '&.Mui-focused': {
+                    color: 'rgba(255, 255, 255, 0.8)',
+                  }
+                },
+                '.MuiOutlinedInput-notchedOutline': {
+                  borderColor: 'rgba(255, 255, 255, 0.8)',
+                }
+              }}
                 label="Email"
                 name="email"
                 onChange={formik.handleChange}

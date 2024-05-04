@@ -71,7 +71,7 @@ export default function Header({ onSelectCategory }) {
           <a onClick={() => navigate("/main")}>
             <img
               className={styles.Logo}
-              src="./src/assets/logo/logo.png"
+              src="./assets/logo/logo.png"
               alt="logo"
             />
           </a>
@@ -106,7 +106,7 @@ export default function Header({ onSelectCategory }) {
             onClick={handleMenuClick}
             className={styles.UserContainer__Picture}
             ref={menuContainerRef}
-            // src="./src/assets/profile/cat_profilepicture.jpg"
+            // src="./assets/profile/cat_profilepicture.jpg"
             src = {userData.profile_img}
             alt="profilepicture"
           />
@@ -114,7 +114,7 @@ export default function Header({ onSelectCategory }) {
             <div className={styles.UserMenu} ref={menuRef}>
               <img
                 className={styles.UserContainer__Picture}
-                // src="./src/assets/profile/cat_profilepicture.jpg"
+                // src="./assets/profile/cat_profilepicture.jpg"
                 src = {userData.profile_img}
                 alt="profilepicture"
               />

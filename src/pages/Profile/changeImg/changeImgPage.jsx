@@ -70,35 +70,35 @@ export default function ProfilImgComponent({ onImgChangeClick }) {
   };
 
   const classic = [
-    {image:"./src/assets/avatar/klassik/Default_standard_smile_boy_character_0.jpg",},
-    {image:"./src/assets/avatar/klassik/Default_standard_smile_character_0.jpg",},
-    {image:"./src/assets/avatar/klassik/Default_standard_smile_character_1 (1).jpg",},
-    {image:"./src/assets/avatar/klassik/Default_standard_smile_character_1.jpg",},
-    {image:"./src/assets/avatar/klassik/Default_standard_smile_man_character_0.jpg",},
+    {image:"./assets/avatar/klassik/Default_standard_smile_boy_character_0.jpg",},
+    {image:"./assets/avatar/klassik/Default_standard_smile_character_0.jpg",},
+    {image:"./assets/avatar/klassik/Default_standard_smile_character_1 (1).jpg",},
+    {image:"./assets/avatar/klassik/Default_standard_smile_character_1.jpg",},
+    {image:"./assets/avatar/klassik/Default_standard_smile_man_character_0.jpg",},
   ];
 
   const comic = [
-    { image: "./src/assets/avatar/comic/Default_hulk_joker_charakter_0.jpg" },
-    { image: "./src/assets/avatar/comic/Default_iron_capton_america_0.jpg" },
-    { image: "./src/assets/avatar/comic/Default_iron_hulk_1.jpg" },
-    { image: "./src/assets/avatar/comic/Default_iron_joker_0.jpg" },
-    { image: "./src/assets/avatar/comic/Default_iron_woman_1.jpg" },
+    { image: "./assets/avatar/comic/Default_hulk_joker_charakter_0.jpg" },
+    { image: "./assets/avatar/comic/Default_iron_capton_america_0.jpg" },
+    { image: "./assets/avatar/comic/Default_iron_hulk_1.jpg" },
+    { image: "./assets/avatar/comic/Default_iron_joker_0.jpg" },
+    { image: "./assets/avatar/comic/Default_iron_woman_1.jpg" },
   ];
 
   const anime = [
-    {image:"./src/assets/avatar/anime/Default_one_piece_alternative_character_1.jpg",},
-    {image:"./src/assets/avatar/anime/Default_one_piece_alternative_character_capton_0.jpg",},
-    {image:"./src/assets/avatar/anime/Default_one_piece_alternative_character_capton_1.jpg",},
-    {image:"./src/assets/avatar/anime/Default_one_piece_alternative_character_luffy_0.jpg",},
-    {image:"./src/assets/avatar/anime/Default_one_piece_alternative_character_zoro_1.jpg",},
+    {image:"./assets/avatar/anime/Default_one_piece_alternative_character_1.jpg",},
+    {image:"./assets/avatar/anime/Default_one_piece_alternative_character_capton_0.jpg",},
+    {image:"./assets/avatar/anime/Default_one_piece_alternative_character_capton_1.jpg",},
+    {image:"./assets/avatar/anime/Default_one_piece_alternative_character_luffy_0.jpg",},
+    {image:"./assets/avatar/anime/Default_one_piece_alternative_character_zoro_1.jpg",},
   ];
 
   const videosney = [
-    {image:"./src/assets/avatar/videosney/Default_just_one_disney_animal_alternativ_character_in_profile_0.jpg",},
-    {image:"./src/assets/avatar/videosney/Default_just_one_disney_animal_alternativ_character_in_profile_1 (1).jpg",},
-    {image:"./src/assets/avatar/videosney/Default_just_one_disney_animal_alternativ_character_in_profile_1 (2).jpg",},
-    {image:"./src/assets/avatar/videosney/Default_just_one_disney_animal_alternativ_character_in_profile_1 (3).jpg",},
-    {image:"./src/assets/avatar/videosney/Default_just_one_disney_animal_alternativ_character_in_profile_1.jpg",},
+    {image:"./assets/avatar/videosney/Default_just_one_disney_animal_alternativ_character_in_profile_0.jpg",},
+    {image:"./assets/avatar/videosney/Default_just_one_disney_animal_alternativ_character_in_profile_1 (1).jpg",},
+    {image:"./assets/avatar/videosney/Default_just_one_disney_animal_alternativ_character_in_profile_1 (2).jpg",},
+    {image:"./assets/avatar/videosney/Default_just_one_disney_animal_alternativ_character_in_profile_1 (3).jpg",},
+    {image:"./assets/avatar/videosney/Default_just_one_disney_animal_alternativ_character_in_profile_1.jpg",},
   ];
 
   return (
