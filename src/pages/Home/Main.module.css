@@ -4,7 +4,10 @@
     padding: 4px;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
 }
 
 .VideoDetailView {
