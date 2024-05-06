@@ -12,7 +12,7 @@ export default function MainPage() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedGenre, setSelectedGenre] = useState("All");
   const [selectedVideo, setSelectedVideo] = useState(null);
-  const BASE_URL = "http://rafael-max.developerakademie.org/";
+  const BASE_URL = "https://rafael-max.developerakademie.org/";
   const [videoDetail, setVideoDetail] = useState(null);
   const [videoPlayed, setVideoPlayed] = useState(false);
   const [videos, setVideos] = useState([]);
@@ -37,6 +37,7 @@ export default function MainPage() {
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
+    setSelectedGenre("All")
     setSelectedVideo(null);
   };
 

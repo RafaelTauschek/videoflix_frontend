@@ -18,7 +18,7 @@ export default function ProfilImgComponent({ onImgChangeClick }) {
       .then(() => {
         handleOpenSnackbar("Success");
         setTimeout(() => {
-          window.location.reload();
+          navigate('/profile')
         }, 1000);
       })
       .catch((error) => {

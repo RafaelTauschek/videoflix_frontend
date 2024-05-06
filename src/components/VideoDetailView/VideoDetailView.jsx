@@ -29,7 +29,7 @@ export default function VideoDetailView({
           className={styles.VideoDetail}
           style={{
             backgroundImage: `url(${
-              "http://rafael-max.developerakademie.org/" + video.thumbnail
+              "https://rafael-max.developerakademie.org/" + video.thumbnail
             })`,
           }}
         >
@@ -41,7 +41,7 @@ export default function VideoDetailView({
             <div>
               <img
                 className={styles.CategoryContainer__Img}
-                src="./src/assets/logo/favicon.png"
+                src="assets/logo/favicon.png"
                 alt="logo"
               />
             </div>
