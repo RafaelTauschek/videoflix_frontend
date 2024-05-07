@@ -337,9 +337,7 @@ export default function AdminPage() {
                   <div>
                     <Button
                       component="label"
-                      role={undefined}
                       variant="contained"
-                      tabIndex={-1}
                       startIcon={<CloudUploadIcon />}
                       className={styles.upload_button}
                     >
@@ -347,6 +345,7 @@ export default function AdminPage() {
                       <VisuallyHiddenInput
                         type="file"
                         accept="image/png, image/jpeg"
+                        style={{ display: "none" }}
                         onChange={handleImgFileChange}
                         onBlur={formik.handleBlur}
                       />
